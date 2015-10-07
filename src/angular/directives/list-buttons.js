@@ -1,19 +1,20 @@
 angular
 .module('app')
-.directive('listButtons', function () {
+.directive('listButtons', function (mediatorManger) {
     return {
         restrict: 'E',
         scope: {
-            values: '='
+            values: '=',
+            eventChannel: '=',
+            type: '@' // template
         },
-        template: '<ul><li ng-repeat="item in values"><button class="btn">{{item.name}}</button></li></ul>',
+        template: '<ul><li ng-repeat="item in values"><button ng-click="action(item)" class="btn">{{item.name}}</button></li></ul>',
         link: function (scope, element, attrs) {
-            //debugger;
             scope.values = scope.values !== undefined ? scope.values : [];
 
-            // scope.emitEvent = function () {
-            //     console.log(scope.value);
-            // }
+            scope.action = function (item) {
+                scope.eventChannel.emit('BUTTON_UPDATE',item);
+            }
         }
     };
 });

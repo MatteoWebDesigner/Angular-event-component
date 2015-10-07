@@ -4,14 +4,18 @@ angular
     return {
         restrict: 'E',
         scope: {
-            values: '@'
+            values: '=',
+            eventChannel: '='
         },
         template: '<div ng-result="item in values">{{item.name}}</div>',
         link: function (scope, element, attrs) {
-            //debugger;
             scope.values = scope.values !== undefined ? scope.values : [];
-
-            // Eventmanager.on('PRINT_RESULT',function(){})
+            
+            if (scope.eventChannel) {
+                scope.eventChannel.subscribe('UPDATE_RESULTS', function (){
+                    debugger;
+                });
+            }
 
         }
     };

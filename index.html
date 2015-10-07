@@ -8,39 +8,58 @@
     <style>
         h2 { margin:0 0 10px 0; }
         ul { margin: 0 0 10px 0; padding:0; }
-        li { display:inline;list-style-type: none; }
+        li { margin-right:10px; display:inline;list-style-type: none; }
 
         mediator-animal {
-            background-color:red;
+            background-color:#FFD6D6;
             display: block;
             padding:5px;
             margin-bottom:10px;
         }
         mediator-food {
-            background-color:orange;
+            background-color:#FFF0D4;
             display: block;
             padding:5px;
         }
     </style>
     <body>
         <mediator-animal>
-            <h2>a-service</h2>
-            <list-buttons values="animal.items"></list-buttons>
-            <list-results></list-results>
 
             <h2>a-service</h2>
-            <list-buttons values="animal.items"></list-buttons>
-            <results></results>
+            <list-buttons
+                values="animal.items"
+                event-channel="animal.eventChannel">
+            </list-buttons>
+
+            <list-results event-channel="animal.eventChannel"></list-results>
+
+
+            <h2>a-service</h2>
+            <list-buttons
+                values="animal.items"
+                event-channel="animal.eventChannel"
+                type="template-name">
+            </list-buttons>
+
+            <results event-channel="animal.eventChannel"></results>
+
         </mediator-animal>
+
 
         <mediator-food>
             <h2>b-service</h2>
-            <list-buttons values="food.items"></list-buttons>
-            <list-results></list-results>
+
+            <list-buttons
+                values="food.items"
+                event-channel="food.eventChannel">
+            </list-buttons>
+
+            <list-results event-channel="food.eventChannel"></list-results>
         </mediator-food>
 
         <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
         <script type="text/javascript" src="src/angular/app.js"></script>
+        <script type="text/javascript" src="src/angular/services/mediator-manager.js"></script>
         <script type="text/javascript" src="src/angular/directives/mediator-animal.js"></script>
         <script type="text/javascript" src="src/angular/directives/mediator-food.js"></script>
         <script type="text/javascript" src="src/angular/directives/list-buttons.js"></script>
