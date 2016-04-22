@@ -1,84 +1,50 @@
 "use strict";
 
-var gulp         = require('gulp'),
-    gulpSass     = require('gulp-sass'),
-    gulpConnect  = require('gulp-connect'),
-    gulpOpen     = require('gulp-open')
-;
-
 var
-    server = {
-        port: 8000
-    },
-    assetsPath = {
-        sass: 'src/assets/**/*.scss',
-        //mainSass: 'src/assets/main.scss',
-        js: 'src/angular/**/*.js',
-        dist: 'dist/'
-    }
+    gulp         = require('gulp'),
+    babel        = require("gulp-babel"),
+    concat       = require("gulp-concat"),
+    runSequence  = require('run-sequence'),
+    sourcemaps   = require("gulp-sourcemaps"),
+
+    // html
+    // css
+    postcss      = require('gulp-postcss'),
+    // js
+
+    config       = require("./config.js")
 ;
 
-// gulp.task('sass', function () {
-//   gulp.src('./sass/**/*.scss')
-//     .pipe(sass.sync().on('error', sass.logError))
-//     .pipe(gulp.dest('./css'));
-// });
-//
-//
-// gulp.task('sass:watch', function () {
-//   gulp.watch('./sass/**/*.scss', ['sass']);
+// gulp.task('html', function() {
+//     gulp.src('index.html');
 // });
 
-// gulp.task('buildStyles', function() {
-//     gulp.src(assetsPath.sass)
-//         .pipe(gulpSass())
-//         .pipe(gulp.dest(assetsPath.dist))
-//         .pipe(connect.reload());
+// gulp.task('css', function() {
+//     gulp.src('');
 // });
 
-// gulp.task('watch', function() {
-//     gulp.watch('styles/*.less', ['less']);
-// })
-
-
-gulp.task('webserver', function() {
-    gulpConnect.server({
-        livereload: true,
-        port: server.port
-    });
+gulp.task('js', () => {
+    return gulp.src("client/app/**/*.js")
+        .pipe(sourcemaps.init())
+        .pipe(babel())
+        .pipe(concat("app.js"))
+        .pipe(sourcemaps.write("."))
+        .pipe(gulp.dest("dist"));
 });
 
+// gulp.task('watch', () => {
+//     gulp.watch('index.html', ['html']);
+//     gulp.watch('', ['css']);
+//     gulp.watch('', ['js']);
+// });
 
-gulp.task('openBrowser', function() {
-    gulp
-    .src(__filename)
-    .pipe(
-        gulpOpen({
-            uri: 'http://localhost:' + server.port
-        })
+gulp.task('default', () => {
+    runSequence(
+        'js'
+        // 'clean',
+        // 'css-stylelint',
+        // ['fonts','html','jade','cssVendor','css','jsVendor','js'],
+        // ['css-deprecated'],
+        // 'watch'
     );
 });
-
-gulp.task('buildHtml', function() {
-    gulp.src('index.html')
-        .pipe(gulpConnect.reload());
-});
-
-gulp.task('buildStyle', function() {
-    gulp.src(assetsPath.sass)
-        .pipe(gulpConnect.reload());
-});
-
-gulp.task('buildScript', function() {
-    gulp.src(assetsPath.js)
-        .pipe(gulpConnect.reload());
-});
-
-gulp.task('watch', function() {
-    gulp.watch('index.html', ['buildHtml']);
-    gulp.watch(assetsPath.sass, ['buildStyle']);
-    gulp.watch(assetsPath.js, ['buildScript']);
-});
-
-
-gulp.task('default', ['webserver', 'openBrowser','watch']);

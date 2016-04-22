@@ -1,27 +1,29 @@
 {
-  "name": "angular-event-component",
-  "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
-  "dependencies": {
-    "bower": "^1.5.3",
-    "gulp": "^3.9.0",
-    "gulp-connect": "^2.2.0",
-    "gulp-open": "^1.0.0",
-    "gulp-sass": "^2.0.4"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MatteoWebDesigner/angular-event-component.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MatteoWebDesigner/angular-event-component/issues"
-  },
-  "homepage": "https://github.com/MatteoWebDesigner/angular-event-component#readme"
+    "name": "angular-event-component",
+    "version": "1.0.0",
+    "description": "use Angular 1.5 component feature + RxJs",
+    "main": "server/app.js",
+    "dependencies": {
+        "bower": "^1.7.9",
+        "express": "^4.13.4",
+        "gulp": "^3.9.1",
+        "gulp-babel": "^6.1.2",
+        "gulp-concat": "^2.6.0",
+        "gulp-sourcemaps": "^2.0.0-alpha",
+        "run-sequence": "^1.1.5"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MatteoWebDesigner/angular-event-component.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MatteoWebDesigner/angular-event-component/issues"
+    },
+    "homepage": "https://github.com/MatteoWebDesigner/angular-event-component#readme"
 }
