@@ -6,6 +6,7 @@ var
     concat       = require("gulp-concat"),
     runSequence  = require('run-sequence'),
     sourcemaps   = require("gulp-sourcemaps"),
+    livereload   = require('gulp-livereload'),
 
     // html
     // css
@@ -29,7 +30,7 @@ gulp.task('js', () => {
         .pipe(babel())
         .pipe(concat("app.js"))
         .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest("dist"));
+        .pipe(gulp.dest("server/public"));
 });
 
 // gulp.task('watch', () => {
