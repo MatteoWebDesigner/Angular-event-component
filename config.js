@@ -1,5 +1,7 @@
 "use strict";
 
-var config = {};
+var config = {
+    dist: 'server/public/' 
+};
 
 module.exports = config;
