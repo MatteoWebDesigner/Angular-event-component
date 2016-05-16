@@ -5,6 +5,7 @@
   "main": "server/app.js",
   "dependencies": {
     "bower": "^1.7.9",
+    "ejs": "^2.4.1",
     "express": "^4.13.4",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",

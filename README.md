@@ -8,3 +8,11 @@ use Angular 1.5 component feature + RxJs
 
 # build
 > gulp
+
+# PRIORITIES:
+- create UI with HTML and CSS
+- create component with Angular
+- communicate with RxJs
+- serve API with Node
+- get data from MongoDB
+- create Jasmine test and Protractor test
