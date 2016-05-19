@@ -13,16 +13,18 @@ var
     postcss      = require('gulp-postcss'),
     // js
 
-    config       = require("./config.js")
+    config       = require("./config.js"),
+
+    bundle       = require("./bundle.js")
 ;
 
 // gulp.task('html', function() {
 //     gulp.src('index.html');
 // });
 
-// gulp.task('css', function() {
-//     gulp.src('');
-// });
+gulp.task('css', function() {
+    gulp.src('');
+});
 
 gulp.task('js', () => {
     return gulp.src("client/app/**/*.js")
