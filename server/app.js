@@ -13,6 +13,11 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+// serve angular template
+// app.get('/', (req, res) => {
+//     res.sendFile( path.join(__dirname, 'public') );
+// });
+
 // run server
 app.listen(3000, () => {
     console.log('Example app listening on port 3000!');

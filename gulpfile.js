@@ -2,6 +2,7 @@
 
 var
     gulp         = require('gulp'),
+    _            = require('lodash'),
     babel        = require("gulp-babel"),
     concat       = require("gulp-concat"),
     runSequence  = require('run-sequence'),
@@ -22,12 +23,21 @@ var
 //     gulp.src('index.html');
 // });
 
-gulp.task('css', function() {
-    gulp.src('');
+// gulp.task('css', function() {
+//     gulp.src('');
+// });
+
+gulp.task('jsVendor', () => {    
+    return gulp.src(bundle.jsLibs)
+        .pipe(sourcemaps.init())
+        .pipe(babel())
+        .pipe(concat("vendor.js"))
+        .pipe(sourcemaps.write("."))
+        .pipe(gulp.dest("server/public"));
 });
 
-gulp.task('js', () => {
-    return gulp.src("client/app/**/*.js")
+gulp.task('js', () => {    
+    return gulp.src(bundle.js)
         .pipe(sourcemaps.init())
         .pipe(babel())
         .pipe(concat("app.js"))
@@ -35,19 +45,20 @@ gulp.task('js', () => {
         .pipe(gulp.dest("server/public"));
 });
 
-// gulp.task('watch', () => {
-//     gulp.watch('index.html', ['html']);
-//     gulp.watch('', ['css']);
-//     gulp.watch('', ['js']);
-// });
+gulp.task('watch', () => {
+    // gulp.watch('index.html', ['html']);
+    // gulp.watch('', ['css']);
+    gulp.watch(config.jsFiles, ['js']);
+});
 
 gulp.task('default', () => {
     runSequence(
-        'js'
+        'jsVendor',
+        'js',
         // 'clean',
         // 'css-stylelint',
         // ['fonts','html','jade','cssVendor','css','jsVendor','js'],
         // ['css-deprecated'],
-        // 'watch'
+        'watch'
     );
 });
