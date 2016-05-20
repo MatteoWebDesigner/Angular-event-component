@@ -16,6 +16,7 @@
     "lodash": "^4.11.1",
     "node-inspector": "^0.12.8",
     "nodemon": "^1.9.1",
+    "postcss-inline-comment": "^3.0.0",
     "run-sequence": "^1.1.5"
   },
   "devDependencies": {},

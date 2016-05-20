@@ -1,4 +1,8 @@
 body {
-    color:red;
     font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: blue;
+}
+.c_CoreComponent {
+    color:red;
 }
