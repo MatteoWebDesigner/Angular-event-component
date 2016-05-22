@@ -3,6 +3,7 @@
 var
     gulp         = require('gulp'),
     _            = require('lodash'),
+    clean        = require('gulp-clean'),
     babel        = require("gulp-babel"),
     concat       = require("gulp-concat"),
     runSequence  = require('run-sequence'),
@@ -21,8 +22,13 @@ var
     bundle       = require("./bundle.js")
 ;
 
+gulp.task('clean', function() {
+    return gulp.src(config.dist)
+		.pipe(clean({force: true}))
+});
+
 gulp.task('assets', function() {
-    return gulp.src('client/assets')
+    return gulp.src('client/assets/**/*',{ 'base' : './client' })
         .pipe(gulp.dest(config.dist));
 });
 
@@ -67,7 +73,7 @@ gulp.task('watch', () => {
 
 gulp.task('default', () => {
     runSequence(
-        // 'clean',
+        'clean',
         // 'css-stylelint',
         // ['fonts','html','jade','cssVendor','css','jsVendor','js'],
         // ['css-deprecated'],

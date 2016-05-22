@@ -7,12 +7,13 @@ angular
         bindings: {
             fromAttribute: '@'
         },
-        template: `
-            <div class="c_CoreComponent">
-                <div>{{$ctrl.fromAttribute}}</div>
-                <div>{{$ctrl.fromController}}</div>
-            </div>
-        `,
+        // template: `
+        //     <div class="c_CoreComponent">
+        //         <div>{{$ctrl.fromAttribute}}</div>
+        //         <div>{{$ctrl.fromController}}</div>
+        //     </div>
+        // `,
+        templateUrl: 'core/component/component_1/core.html',
         controller: function() {
             this.fromController = 'controller';
             
