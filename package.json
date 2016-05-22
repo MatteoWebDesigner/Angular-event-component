@@ -2,7 +2,7 @@
   "name": "angular-event-component",
   "version": "1.0.0",
   "description": "use Angular 1.5 component feature + RxJs",
-  "main": "server/app.js",
+  "main": "server/app/app.js",
   "dependencies": {
     "bower": "^1.7.9",
     "ejs": "^2.4.1",
@@ -21,8 +21,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node ./server/app.js",
-    "debug": "node-inspector & nodemon --debug ./server/app.js",
+    "start": "node ./server/app/app.js",
+    "debug": "node-inspector & nodemon --debug ./server/app/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

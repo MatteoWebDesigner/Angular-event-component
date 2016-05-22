@@ -21,10 +21,15 @@ var
     bundle       = require("./bundle.js")
 ;
 
+gulp.task('assets', function() {
+    return gulp.src('client/assets')
+        .pipe(gulp.dest(config.dist));
+});
+
 gulp.task('cssVendor', function() {
     return gulp.src(bundle.cssLibs)
         .pipe(concat("vendor.css"))
-        .pipe(gulp.dest("server/public"));
+        .pipe(gulp.dest(config.dist));
 });
 
 gulp.task('css', function() {
@@ -33,7 +38,7 @@ gulp.task('css', function() {
             postcssInlineComment()
         ]))
         .pipe(concat("app.css"))
-        .pipe(gulp.dest("server/public"));
+        .pipe(gulp.dest(config.dist));
 });
 
 gulp.task('jsVendor', () => {    
@@ -42,7 +47,7 @@ gulp.task('jsVendor', () => {
         .pipe(babel())
         .pipe(concat("vendor.js"))
         .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest("server/public"));
+        .pipe(gulp.dest(config.dist));
 });
 
 gulp.task('js', () => {    
@@ -51,7 +56,7 @@ gulp.task('js', () => {
         .pipe(babel())
         .pipe(concat("app.js"))
         .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest("server/public"));
+        .pipe(gulp.dest(config.dist));
 });
 
 gulp.task('watch', () => {
@@ -66,6 +71,7 @@ gulp.task('default', () => {
         // 'css-stylelint',
         // ['fonts','html','jade','cssVendor','css','jsVendor','js'],
         // ['css-deprecated'],
+        'assets',
         'css',
         'jsVendor',
         'js',

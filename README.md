@@ -9,6 +9,8 @@ use Angular 1.5 component feature + RxJs
 # build
 > gulp
 
+folder structure product oriented
+
 # PRIORITIES:
 - create UI with HTML and CSS
 - create component with Angular

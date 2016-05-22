@@ -15,9 +15,6 @@ var config = {
         'client/app/core/style/component/*.css',
         
         // Section
-        'server/app/core/component/**/*.css',
-        'server/app/product_1/component/**/*.css',
-        
         'client/app/core/component/**/*.css',
         'client/app/product_1/component/**/*.css',
         
