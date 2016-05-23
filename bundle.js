@@ -16,6 +16,8 @@ var config = {
         
         // Section
         'client/app/core/component/**/*.css',
+        
+        'client/app/product_1/style/section_name/*.css',
         'client/app/product_1/component/**/*.css',
         
         // Trump

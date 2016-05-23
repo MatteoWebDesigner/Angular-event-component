@@ -3,3 +3,34 @@ body {
     font-family: Arial, sans-serif;
     color: blue;
 }
+
+/*// Core
+'client/app/core/style/setting/*.css',
+'client/app/core/style/tool/*.css',
+'client/app/core/style/generic/*.css',
+'client/app/core/style/extension/*.css',
+'client/app/core/style/base/*.css',
+'client/app/core/style/object/*.css',
+'client/app/core/style/component/*.css',
+
+// Section
+'client/app/core/component/**/*.css',
+
+'client/app/product_1/style/section_name/*.css',
+'client/app/product_1/component/**/*.css',
+
+// Trump
+'client/app/core/style/trump/*.css',*/
+
+.generic {}
+.extension {} // still thinking what is best option
+.b_Name {}
+.o_Name {}
+.c_Name {}
+
+.cCor_Name {}
+
+.sPrd1_Name {}
+.cPrd1_Name {}
+
+.t_Name {}
