@@ -9,6 +9,24 @@ use Angular 1.5 component feature + RxJs
 # build
 > gulp
 
+// Table of content:
+// * Setting
+// * Mixin
+// * Custom Mixin
+// * Generic
+// * Extension
+// * Tools
+// * Base
+// * Objects
+// * Components
+
+// * Module
+// * --| component
+// * --| component
+// * --| component
+
+// * Trumps
+
 folder structure product oriented
 
 # PRIORITIES:

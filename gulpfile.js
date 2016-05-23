@@ -13,12 +13,14 @@ var
     // html
     // css
     postcss              = require('gulp-postcss'),
+    cssnext              = require('postcss-cssnext'),
+    csslint              = require('stylelint'),
     postcssInlineComment = require('postcss-inline-comment'),
     
     // js
-
+    
+    // config
     config       = require("./config.js"),
-
     bundle       = require("./bundle.js")
 ;
 
@@ -40,10 +42,13 @@ gulp.task('cssVendor', function() {
 
 gulp.task('css', function() {
     return gulp.src(bundle.css)
+        .pipe(sourcemaps.init())
         .pipe(postcss([ 
-            postcssInlineComment()
+            postcssInlineComment(),
+            cssnext({ browsers: ['last 2 versions']})
         ]))
         .pipe(concat("app.css"))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.dist));
 });
 
