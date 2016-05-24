@@ -9,12 +9,29 @@ angular
         },
         templateUrl: 'core/component/component_1/core.html',
         controller: function($http) {
-            this.fromController = 'controller';
+            this.data = {};
+            this.list = [];
+            
+            this.handleGet = () => {
+                $http
+                    .get('/api/movies')
+                    .then((res) => {
+                        this.list = res.data;
+                    });
+            };
+            
+            this.handleSave = () => {
+                $http
+                    .post('/api/movies', this.data )
+                    .then((res) => {
+                        console.log(res);
+                        
+                        this.handleGet();
+                    });
+            };
             
             this.$onInit = () => {
-                $http.get('/api/movies').then(function(){
-                    console.log(arguments)
-                })
+                this.handleGet();
             };
         }
     });

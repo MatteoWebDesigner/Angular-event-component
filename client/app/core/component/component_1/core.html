@@ -1,4 +1,16 @@
 <div class="c_CoreComponent">
-    <div>{{$ctrl.fromAttribute}}</div>
-    <div>{{$ctrl.fromController}}</div>
+    <div>data from attribute: {{$ctrl.fromAttribute}}</div><br>
+    
+    <div class="">
+        <div><b>Add name</b></div>
+        <input type="text" name="name" value="" ng-model="$ctrl.data.name">
+    </div>
+    
+    <button type="button" name="button" ng-click="$ctrl.handleGet()">get</button>
+    <button type="button" name="button" ng-click="$ctrl.handleSave()">save</button>
+    
+    <h3>List Movie:</h3>
+    <ul>
+        <li ng-repeat="item in $ctrl.list">{{item.name}}</li>
+    </ul>
  </div>

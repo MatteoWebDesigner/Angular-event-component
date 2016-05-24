@@ -4,6 +4,7 @@
   "description": "use Angular 1.5 component feature + RxJs",
   "main": "server/app/app.js",
   "dependencies": {
+    "body-parser": "^1.15.1",
     "bower": "^1.7.9",
     "ejs": "^2.4.1",
     "express": "^4.13.4",

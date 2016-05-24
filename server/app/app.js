@@ -3,6 +3,7 @@ const app        = express();
 const ejs        = require('ejs');
 const path       = require('path');
 const mongoose   = require('mongoose');
+const bodyParser = require('body-parser');
 
 // database
 mongoose.connect('mongodb://localhost:27017/matteo');
@@ -25,18 +26,18 @@ db.once('open', function() {
     // });
 
     // query document
-    MovieModel.find(function(err, item) {
-        if (err) return console.error(err);
-        console.log(item);
-    });
-    
-    MovieModel.find(
-        { name: /^Sile/ }, 
-        function(err, item) {
-            if (err) return console.error(err);
-            console.log(item);
-        }
-    );
+    // MovieModel.find(function(err, item) {
+    //     if (err) return console.error(err);
+    //     console.log(item);
+    // });
+    // 
+    // MovieModel.find(
+    //     { name: /^Sile/ }, 
+    //     function(err, item) {
+    //         if (err) return console.error(err);
+    //         console.log(item);
+    //     }
+    // );
 });
 
 // rendering engine
@@ -46,6 +47,9 @@ app.set('views', __dirname + '/views');
 // serve static sources
 app.use(express.static( path.join(__dirname, '../public') ));
 app.use(express.static('client/app'));
+
+// parse body API
+app.use(bodyParser.json()); // for parsing application/json
 
 // routes
 app.get('/', (req, res) => {
