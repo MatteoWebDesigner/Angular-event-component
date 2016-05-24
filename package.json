@@ -24,7 +24,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node ./server/app/app.js",
+    "start": "node ./server/app/app.js;",
+    "start-db": "mongod --dbpath ./data/db;",
     "debug": "node-inspector & nodemon --debug ./server/app/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

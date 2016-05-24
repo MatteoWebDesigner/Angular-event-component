@@ -8,9 +8,13 @@ angular
             fromAttribute: '@'
         },
         templateUrl: 'core/component/component_1/core.html',
-        controller: function() {
+        controller: function($http) {
             this.fromController = 'controller';
             
-            this.$onInit = () => {};
+            this.$onInit = () => {
+                $http.get('/api/movies').then(function(){
+                    console.log(arguments)
+                })
+            };
         }
     });
