@@ -11,6 +11,8 @@
     
     <h3>List Movie:</h3>
     <ul>
-        <li ng-repeat="item in $ctrl.list">{{item.name}}</li>
+        <li ng-repeat="item in $ctrl.list track by item._id">
+            {{item.name}} <span ng-click="$ctrl.handleDelete(item)" style="cursor:pointer;">[x]</span>
+        </li>
     </ul>
  </div>

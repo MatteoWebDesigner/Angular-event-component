@@ -17,7 +17,7 @@
     "gulp-sourcemaps": "^2.0.0-alpha",
     "lodash": "^4.11.1",
     "node-inspector": "^0.12.8",
-    "nodemon": "^1.9.1",
+    "nodemon": "^1.9.2",
     "postcss-cssnext": "^2.5.2",
     "postcss-inline-comment": "^3.0.0",
     "run-sequence": "^1.1.5",
@@ -27,7 +27,7 @@
   "scripts": {
     "start": "node ./server/app/app.js;",
     "start-db": "mongod --dbpath ./data/db;",
-    "debug": "node-inspector & nodemon --debug ./server/app/app.js",
+    "debug": "node-inspector --web-port=14573 & nodemon --debug ./server/app/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

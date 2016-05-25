@@ -14,7 +14,7 @@ angular
             
             this.handleGet = () => {
                 $http
-                    .get('/api/movies')
+                    .get('/api/movies/')
                     .then((res) => {
                         this.list = res.data;
                     });
@@ -22,7 +22,17 @@ angular
             
             this.handleSave = () => {
                 $http
-                    .post('/api/movies', this.data )
+                    .post('/api/movies/', this.data )
+                    .then((res) => {
+                        console.log(res);
+                        
+                        this.handleGet();
+                    });
+            };
+            
+            this.handleDelete = (item) => {
+                $http
+                    .delete(`/api/movies/${item._id}`)
                     .then((res) => {
                         console.log(res);
                         
