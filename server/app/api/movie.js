@@ -20,7 +20,7 @@ router
         Newmovie.save(function (err, item) {
             if (err) return res.status(500).send('Something broke!');
             
-            res.json({message: 'ok'});
+            res.json(item);
         });
     });
     

@@ -24,20 +24,17 @@ angular
                 $http
                     .post('/api/movies/', this.data )
                     .then((res) => {
-                        console.log(res);
+                        this.list.push(res.data);
                         
-                        this.handleGet();
+                        // clear input
+                        this.data = {}; 
                     });
             };
             
-            this.handleDelete = (item) => {
-                $http
-                    .delete(`/api/movies/${item._id}`)
-                    .then((res) => {
-                        console.log(res);
-                        
-                        this.handleGet();
-                    });
+            this.handleDelete = (item,index) => {
+                this.list.splice(index,1);
+                
+                $http.delete(`/api/movies/${item._id}`);
             };
             
             this.$onInit = () => {
