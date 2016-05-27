@@ -2,16 +2,15 @@
 
 var config = {
     cssLibs: [
-        //'client/app/**/*.css'
+        'client/app/core/style/setting/theme.css',
+        'client/app/core/style/generic/*.css',
+        'client/app/core/style/extension/*.css'
     ],
     css: [
         // Core
         'client/app/core/style/setting/theme.css',
-        'client/app/core/style/setting/bootstrap-variables.css',
         'client/app/core/style/tool/*.css',
         
-        'client/app/core/style/generic/*.css',
-        'client/app/core/style/extension/*.css',
         'client/app/core/style/base/*.css',
         'client/app/core/style/object/*.css',
         'client/app/core/style/component/*.css',

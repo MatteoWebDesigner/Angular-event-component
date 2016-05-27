@@ -13,9 +13,13 @@ var
     // html
     // css
     postcss              = require('gulp-postcss'),
-    cssnext              = require('postcss-cssnext'),
-    csslint              = require('stylelint'),
-    postcssInlineComment = require('postcss-inline-comment'),
+    cssInlineComment     = require('postcss-inline-comment'),
+    cssMixins            = require('postcss-mixins'),
+    cssNext              = require('postcss-cssnext'),
+    cssLint              = require('stylelint'),
+    cssDoiuse            = require('doiuse'),
+    cssNano              = require('cssnano'),
+    cssMd                = require('mdcss'),
     
     // js
     
@@ -43,11 +47,20 @@ gulp.task('cssVendor', function() {
 gulp.task('css', function() {
     return gulp.src(bundle.css)
         .pipe(sourcemaps.init())
-        .pipe(postcss([ 
-            postcssInlineComment(),
-            cssnext({ browsers: ['last 2 versions']})
-        ]))
         .pipe(concat("app.css"))
+        .pipe(postcss([ 
+            cssInlineComment(),
+            // cssMixins(), // need to look better
+            cssnext({ browsers: ['last 2 versions']}),
+            // cssMd({need options}),
+            cssnano(),
+            doiuse({
+                browsers: [
+                    'ie >= 8',
+                    '> 1%'
+                ]
+            })
+        ]))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.dist));
 });

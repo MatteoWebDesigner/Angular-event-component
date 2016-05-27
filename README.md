@@ -10,25 +10,37 @@ use Angular 1.5 component feature + RxJs
 # build
 > gulp
 
-// Table of content:
-// * Setting
-// * Mixin
-// * Custom Mixin
-// * Generic
-// * Extension
-// * Tools
-// * Base
-// * Objects
-// * Components
+# CSS Architecture
+Folder structure product oriented.
+Separate Vendor from App.
+Going in order the CSS name class applied are:
+vendor-style, tag element style, ECSS, ATOMIC CSS.
 
-// * Module
-// * --| component
-// * --| component
-// * --| component
+// VENDOR
+    * Setting
+    * Tool
+    
+    * Vendor
+    * Extension
 
-// * Trumps
 
-folder structure product oriented
+// APP
+    // Core
+    * Setting
+    * Tool
+    
+    * Base
+    * Object
+    * Component
+
+    // Module
+    * Product
+        * Section
+        * Component
+
+    // Core
+    * Trump
+
 
 # PRIORITIES:
 - create UI with HTML and CSS
