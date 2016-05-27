@@ -6,8 +6,10 @@ var config = {
     ],
     css: [
         // Core
-        'client/app/core/style/setting/*.css',
+        'client/app/core/style/setting/theme.css',
+        'client/app/core/style/setting/bootstrap-variables.css',
         'client/app/core/style/tool/*.css',
+        
         'client/app/core/style/generic/*.css',
         'client/app/core/style/extension/*.css',
         'client/app/core/style/base/*.css',
@@ -15,9 +17,10 @@ var config = {
         'client/app/core/style/component/*.css',
         
         // Section
+        'client/app/core/style/section/*.css',
         'client/app/core/component/**/*.css',
         
-        'client/app/product_1/style/section_name/*.css',
+        'client/app/product_1/style/section/*.css',
         'client/app/product_1/component/**/*.css',
         
         // Trump
@@ -30,7 +33,7 @@ var config = {
         'bower_components/angular/angular.js'
     ],
     js: [
-        'client/app/app.js',
+        'client/app/main.js',
         'client/app/**/*.js'
     ]
 };

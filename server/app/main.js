@@ -4,40 +4,14 @@ const ejs        = require('ejs');
 const path       = require('path');
 const mongoose   = require('mongoose');
 const bodyParser = require('body-parser');
+var db;
 
 // database
 mongoose.connect('mongodb://localhost:27017/matteo');
-
-var db = mongoose.connection;
+db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log('database connnected');
-    
-    const MovieModel = require('./model/movie.js');
-    
-    // instanciate model
-    var Newmovie = new MovieModel({ name: 'Silence' });
-    console.log(Newmovie); // 'Silence'
-    
-    // save instance
-    // Newmovie.save(function (err, item) {
-    //     if (err) return console.error(err);
-    //     item.speak();
-    // });
-
-    // query document
-    // MovieModel.find(function(err, item) {
-    //     if (err) return console.error(err);
-    //     console.log(item);
-    // });
-    // 
-    // MovieModel.find(
-    //     { name: /^Sile/ }, 
-    //     function(err, item) {
-    //         if (err) return console.error(err);
-    //         console.log(item);
-    //     }
-    // );
 });
 
 // rendering engine
