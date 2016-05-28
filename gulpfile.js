@@ -48,13 +48,23 @@ gulp.task('css', function() {
     return gulp.src(bundle.css)
         .pipe(sourcemaps.init())
         .pipe(concat("app.css"))
-        .pipe(postcss([ 
+        .pipe(postcss([
             cssInlineComment(),
             // cssMixins(), // need to look better
-            cssnext({ browsers: ['last 2 versions']}),
+            cssNext({
+                browsers: ['last 2 versions'],
+                warnForDuplicates: false
+            }),
+            cssLint({
+                reporters: [{
+                    formatter: 'string',
+                    console: true
+                }],
+                debug: true
+            }),
             // cssMd({need options}),
-            cssnano(),
-            doiuse({
+            cssNano(),
+            cssDoiuse({
                 browsers: [
                     'ie >= 8',
                     '> 1%'
