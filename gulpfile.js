@@ -41,10 +41,11 @@ gulp.task('assets', function() {
 gulp.task('cssVendor', function() {
     return gulp.src(bundle.cssLibs)
         .pipe(sourcemaps.init())
-        .pipe(concat("vendor.css"))
-        // .pipe(postcss([
-        //     cssNano()
-        // ]))
+        //.pipe(concat("vendor.css"))
+        .pipe(postcss([
+            cssInlineComment(),
+            cssNano()
+        ]))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.dist));
 });
