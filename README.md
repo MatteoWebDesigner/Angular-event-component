@@ -23,7 +23,6 @@ vendor-style, tag element style, ECSS, ATOMIC CSS.
     * Vendor
     * Extension
 
-
 // APP
     // Core
     * Setting
@@ -42,7 +41,7 @@ vendor-style, tag element style, ECSS, ATOMIC CSS.
     * Trump
 
 
-# PRIORITIES:
+# Priorities:
 - create UI with HTML and CSS
 - create component with Angular
 - communicate with RxJs

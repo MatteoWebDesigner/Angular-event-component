@@ -40,7 +40,12 @@ gulp.task('assets', function() {
 
 gulp.task('cssVendor', function() {
     return gulp.src(bundle.cssLibs)
+        .pipe(sourcemaps.init())
         .pipe(concat("vendor.css"))
+        // .pipe(postcss([
+        //     cssNano()
+        // ]))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.dist));
 });
 
@@ -106,6 +111,7 @@ gulp.task('default', () => {
         // ['fonts','html','jade','cssVendor','css','jsVendor','js'],
         // ['css-deprecated'],
         'assets',
+        'cssVendor',
         'css',
         'jsVendor',
         'js',

@@ -19,6 +19,7 @@
     "gulp-sourcemaps": "^2.0.0-alpha",
     "lodash": "^4.11.1",
     "mdcss": "^1.5.2",
+    "mongoose": "^4.4.19",
     "node-inspector": "^0.12.8",
     "nodemon": "^1.9.2",
     "postcss-cssnext": "^2.5.2",
