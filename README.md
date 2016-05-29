@@ -40,6 +40,7 @@ vendor-style, tag element style, ECSS, ATOMIC CSS.
     // Core
     * Trump
 
+http://flexboxgrid.com/
 
 # Priorities:
 - create UI with HTML and CSS

@@ -24,6 +24,7 @@ var
     
     // js
     uglify               = require('gulp-uglify'),
+    ngAnnotate           = require('gulp-ng-annotate'),
     
     // config
     config       = require("./config.js"),
@@ -88,7 +89,6 @@ gulp.task('css', function() {
 gulp.task('jsVendor', () => {    
     return gulp.src(bundle.jsLibs)
         .pipe(sourcemaps.init())
-        .pipe(babel({presets: ['es2015']}))
         .pipe(concat("vendor.js"))
         .pipe(uglify().on('error', function(e){
             console.log(e);
@@ -103,6 +103,7 @@ gulp.task('js', () => {
         .pipe(sourcemaps.init())
         .pipe(babel({presets: ['es2015']}))
         .pipe(concat("app.js"))
+        .pipe(ngAnnotate())
         .pipe(uglify().on('error', function(e){
             console.log(e);
         }))
