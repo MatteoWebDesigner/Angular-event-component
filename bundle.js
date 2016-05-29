@@ -2,9 +2,12 @@
 
 var config = {
     cssLibs: [
-        'client/app/core/style/setting/theme.css',
-        'client/app/core/style/generic/*.css',
         'bower_components/normalize-css/normalize.css',
+        'bower_components/flexboxgrid/dist/flexboxgrid.css',
+
+        'client/app/core/style/setting/theme.css',
+
+        'client/app/core/style/vendor/*.css',
         'client/app/core/style/extension/*.css'
     ],
     css: [
