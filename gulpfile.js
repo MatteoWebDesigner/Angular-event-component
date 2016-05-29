@@ -9,6 +9,7 @@ var
     runSequence  = require('run-sequence'),
     sourcemaps   = require("gulp-sourcemaps"),
     livereload   = require('gulp-livereload'),
+    size         = require('gulp-size'),
 
     // html
     // css
@@ -22,6 +23,7 @@ var
     cssMd                = require('mdcss'),
     
     // js
+    uglify               = require('gulp-uglify'),
     
     // config
     config       = require("./config.js"),
@@ -46,6 +48,7 @@ gulp.task('cssVendor', function() {
             cssInlineComment(),
             cssNano()
         ]))
+        .pipe(size({showFiles:true}))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.dist));
 });
@@ -77,6 +80,7 @@ gulp.task('css', function() {
                 ]
             })
         ]))
+        .pipe(size({showFiles:true}))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.dist));
 });
@@ -84,8 +88,12 @@ gulp.task('css', function() {
 gulp.task('jsVendor', () => {    
     return gulp.src(bundle.jsLibs)
         .pipe(sourcemaps.init())
-        .pipe(babel())
+        .pipe(babel({presets: ['es2015']}))
         .pipe(concat("vendor.js"))
+        .pipe(uglify().on('error', function(e){
+            console.log(e);
+        }))
+        .pipe(size({showFiles:true}))
         .pipe(sourcemaps.write("."))
         .pipe(gulp.dest(config.dist));
 });
@@ -93,8 +101,12 @@ gulp.task('jsVendor', () => {
 gulp.task('js', () => {    
     return gulp.src(bundle.js)
         .pipe(sourcemaps.init())
-        .pipe(babel())
+        .pipe(babel({presets: ['es2015']}))
         .pipe(concat("app.js"))
+        .pipe(uglify().on('error', function(e){
+            console.log(e);
+        }))
+        .pipe(size({showFiles:true}))
         .pipe(sourcemaps.write("."))
         .pipe(gulp.dest(config.dist));
 });
