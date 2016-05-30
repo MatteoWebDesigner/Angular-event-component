@@ -4,6 +4,8 @@ const swig       = require('swig');
 const path       = require('path');
 const mongoose   = require('mongoose');
 const bodyParser = require('body-parser');
+var fs           = require('fs');
+var gm           = require('gm').subClass({imageMagick: true});
 var db;
 
 // database
@@ -15,13 +17,9 @@ db.once('open', function() {
 });
 
 // rendering engine
-// app.set('view engine', 'ejs');
-// app.set('views', __dirname + '/views');
-
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
-
 
 // serve static sources
 app.use(express.static( path.join(__dirname, '../public') ));
