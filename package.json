@@ -9,7 +9,6 @@
     "bower": "^1.7.9",
     "cssnano": "^3.6.2",
     "doiuse": "^2.3.0",
-    "ejs": "^2.4.1",
     "express": "^4.13.4",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
@@ -30,7 +29,8 @@
     "postcss-inline-comment": "^3.0.0",
     "postcss-mixins": "^4.0.2",
     "run-sequence": "^1.1.5",
-    "stylelint": "^6.5.1"
+    "stylelint": "^6.5.1",
+    "swig": "^1.4.2"
   },
   "devDependencies": {},
   "scripts": {

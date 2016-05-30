@@ -1,5 +1,5 @@
 angular
-    .module('app.core')
+    .module('app.product_1')
     .constant('CoreComponentEvents',{
         INIT: 'CoreComponentInit'
     })

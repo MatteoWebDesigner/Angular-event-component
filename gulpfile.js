@@ -1,34 +1,34 @@
 "use strict";
 
 var
-    gulp         = require('gulp'),
-    _            = require('lodash'),
-    clean        = require('gulp-clean'),
-    babel        = require("gulp-babel"),
-    concat       = require("gulp-concat"),
-    runSequence  = require('run-sequence'),
-    sourcemaps   = require("gulp-sourcemaps"),
-    livereload   = require('gulp-livereload'),
-    size         = require('gulp-size'),
+    gulp              = require('gulp'),
+    _                 = require('lodash'),
+    clean             = require('gulp-clean'),
+    babel             = require("gulp-babel"),
+    concat            = require("gulp-concat"),
+    runSequence       = require('run-sequence'),
+    sourcemaps        = require("gulp-sourcemaps"),
+    livereload        = require('gulp-livereload'),
+    size              = require('gulp-size'),
 
     // html
     // css
-    postcss              = require('gulp-postcss'),
-    cssInlineComment     = require('postcss-inline-comment'),
-    cssMixins            = require('postcss-mixins'),
-    cssNext              = require('postcss-cssnext'),
-    cssLint              = require('stylelint'),
-    cssDoiuse            = require('doiuse'),
-    cssNano              = require('cssnano'),
-    cssMd                = require('mdcss'),
+    postcss           = require('gulp-postcss'),
+    cssInlineComment  = require('postcss-inline-comment'),
+    cssMixins         = require('postcss-mixins'),
+    cssNext           = require('postcss-cssnext'),
+    cssLint           = require('stylelint'),
+    cssDoiuse         = require('doiuse'),
+    cssNano           = require('cssnano'),
+    cssMd             = require('mdcss'),
     
     // js
-    uglify               = require('gulp-uglify'),
-    ngAnnotate           = require('gulp-ng-annotate'),
+    uglify            = require('gulp-uglify'),
+    ngAnnotate        = require('gulp-ng-annotate'),
     
     // config
-    config       = require("./config.js"),
-    bundle       = require("./bundle.js")
+    config            = require("./config.js"),
+    bundle            = require("./bundle.js")
 ;
 
 gulp.task('clean', function() {

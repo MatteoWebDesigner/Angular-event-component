@@ -42,6 +42,22 @@ vendor-style, tag element style, ECSS, ATOMIC CSS.
 
 http://flexboxgrid.com/
 
+# project
+bundle=website
+- index page
+    search movie title
+    query: sort new-old, country, year
+    list of movies
+    lazy load (later)
+    auth (later)
+- profile page
+    movie card
+
+bundle=spa
+- dashboard: list movie
+    
+- dashboard-profile: 
+
 # Priorities:
 - create UI with HTML and CSS
 - create component with Angular
