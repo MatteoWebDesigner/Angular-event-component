@@ -4,8 +4,6 @@ const swig       = require('swig');
 const path       = require('path');
 const mongoose   = require('mongoose');
 const bodyParser = require('body-parser');
-var fs           = require('fs');
-var gm           = require('gm').subClass({imageMagick: true});
 var db;
 
 // database
