@@ -34,6 +34,10 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.get('/movie/:slug', (req, res) => {
+    res.render('profile', {slug: req.params.slug});
+});
+
 // api
 app.use('/api', require('./api/movie.js'));
 
