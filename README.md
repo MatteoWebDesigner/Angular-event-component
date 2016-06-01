@@ -17,9 +17,6 @@ Going in order the CSS name class applied are:
 vendor-style, tag element style, ECSS, ATOMIC CSS.
 
 // VENDOR
-    * Setting
-    * Tool
-    
     * Vendor
     * Extension
 
@@ -40,28 +37,27 @@ vendor-style, tag element style, ECSS, ATOMIC CSS.
     // Core
     * Trump
 
-http://flexboxgrid.com/
+# project requirement
+Movie list page,
+Movie Profile page
+Admin movie list
+Admin add/edit movie
 
-# project
-bundle=website
-- index page
-    search movie title
-    query: sort new-old, country, year
-    list of movies
-    lazy load (later)
-    auth (later)
-- profile page
-    movie card
+Create SPA
+Admin search feature (title)
+Admin filter feature (sort new-old, country, year)
 
-bundle=spa
-- dashboard: list movie
-    
-- dashboard-profile: 
+Sign up modal
+JWT
+Auth
+lazy load
 
-# Priorities:
+
+# Tech task:
 - create UI with HTML and CSS
-- create component with Angular
+- create component with Angular 1.5
 - communicate with RxJs
-- serve API with Node
-- get data from MongoDB
 - create Jasmine test and Protractor test
+- create SPA
+- API with Node
+- get data from MongoDB
