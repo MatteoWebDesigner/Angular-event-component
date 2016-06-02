@@ -1,56 +1,55 @@
-# angular-event-component
-use Angular 1.5 component feature + RxJs
+# Angular-event-component
+Experimenting new CSS architecture, Angular 1.5 component architecture, and RxJs for event base communication.
+Node, Express and MongoDB as BackEnd.
 
-# start server
-> npm start
-> npm run-script start-db
-> npm run-script start-debugger
-> node-inspector
+# run server services
+> npm start  
+npm run-script db  
+npm run-script debug
 
-# build
+# build FE assets
 > gulp
 
 # CSS Architecture
 Folder structure product oriented.
-Separate Vendor from App.
-Going in order the CSS name class applied are:
-vendor-style, tag element style, ECSS, ATOMIC CSS.
+Separate Vendor and App CSS.
+The following flavor are used: vendor-style, tag element style, ECSS, ATOMIC CSS.
 
-// VENDOR
-    * Vendor
-    * Extension
+## Vendor
+* Vendor
+* Extension
 
-// APP
-    // Core
-    * Setting
-    * Tool
-    
-    * Base
-    * Object
-    * Component
+## App
+###### Core
+* Setting  
+* Tool  
+* Base
+* Object
+* Component
 
-    // Module
-    * Product
-        * Section
-        * Component
+    ###### Module
+    * Section  
+    * Component  
 
-    // Core
-    * Trump
 
-# project requirement
-Movie list page,
-Movie Profile page
-Admin movie list
-Admin add/edit movie
+* Trump
 
-Create SPA
-Admin search feature (title)
-Admin filter feature (sort new-old, country, year)
 
-Sign up modal
-JWT
-Auth
-lazy load
+# Project requirement
+- Movie list page,  
+- Movie Profile page  
+- Admin movie list  
+- Admin add/edit movie  
+
+#### Create SPA  
+- Admin search feature (title)  
+- Admin filter feature (sort new-old, country, year)  
+
+#### Other feature
+- Sign up modal  
+- JWT  
+- Auth  
+- lazy load  
 
 
 # Tech task:
