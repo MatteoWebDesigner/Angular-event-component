@@ -25,6 +25,7 @@ var config = {
         'bower_components/angular/angular.js'
     ],
     js: [
+        '!client/app/**/style/**/*.js', // avoid postcss js
         'client/app/main.js',
         'client/app/**/*.js'
     ]

@@ -1,3 +1,15 @@
 :root {
-    --variable: 'ciao mondo';
+    /* font family */
+    --font-sarif: Times New Roman, sarif;
+    --font-sans-sarif: Arial, sans-serif;
+    /* font size */
+    --font-huge:      24px;
+    --font-big:       18px;
+    --font-size-base: 16px;
+    --font-medium:    14px;
+    --font-small:     12px;
+
+    @custom-media --screen-min-xs (min-width: 0px);
+    @custom-media --screen-min-sm (min-width: 768px);
+    @custom-media --screen-min-md (min-width: 1200px);
 }

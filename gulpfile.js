@@ -14,7 +14,7 @@ var
     // html
     // css
     postcss           = require('gulp-postcss'),
-    cssInlineComment  = require('postcss-inline-comment'),
+    cssInlineComment  = require('postcss-strip-inline-comments'),
     cssMixins         = require('postcss-mixins'),
     cssNext           = require('postcss-cssnext'),
     cssLint           = require('stylelint'),
@@ -46,7 +46,6 @@ gulp.task('cssVendor', function() {
         .pipe(sourcemaps.init())
         .pipe(concat("vendor.css"))
         .pipe(postcss([
-            cssInlineComment(),
             cssNano()
         ]))
         .pipe(size({showFiles:true}))
@@ -59,8 +58,7 @@ gulp.task('css', function() {
         .pipe(sourcemaps.init())
         .pipe(concat("app.css"))
         .pipe(postcss([
-            cssInlineComment(),
-            // cssMixins(), // need to look better
+            cssMixins({mixins: require('./client/app/core/style/tool/tool.js')}),
             cssNext({
                 browsers: ['last 2 versions'],
                 warnForDuplicates: false
