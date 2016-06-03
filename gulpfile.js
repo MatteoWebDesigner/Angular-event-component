@@ -14,11 +14,12 @@ var
     // html
     // css
     postcss           = require('gulp-postcss'),
-    cssInlineComment  = require('postcss-strip-inline-comments'),
+    cssEach           = require('postcss-each'),
     cssMixins         = require('postcss-mixins'),
     cssNext           = require('postcss-cssnext'),
     cssLint           = require('stylelint'),
     cssDoiuse         = require('doiuse'),
+    cssMqMin          = require("css-mqpacker"),
     cssNano           = require('cssnano'),
     cssMd             = require('mdcss'),
     
@@ -58,9 +59,10 @@ gulp.task('css', function() {
         .pipe(sourcemaps.init())
         .pipe(concat("app.css"))
         .pipe(postcss([
-            cssMixins({mixins: require('./client/app/core/style/tool/tool.js')}),
+            cssEach,
+            cssMixins(),
             cssNext({
-                browsers: ['last 2 versions'],
+                browsers: config.browserSupport,
                 warnForDuplicates: false
             }),
             cssLint({
@@ -71,12 +73,10 @@ gulp.task('css', function() {
                 debug: true
             }),
             // cssMd({need options}),
+            cssMqMin(),
             cssNano(),
             cssDoiuse({
-                browsers: [
-                    'ie >= 8',
-                    '> 1%'
-                ]
+                browsers: config.browserSupport
             })
         ]))
         .pipe(size({showFiles:true}))

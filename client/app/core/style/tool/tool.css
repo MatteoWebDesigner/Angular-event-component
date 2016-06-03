@@ -1,0 +1,87 @@
+/* grid v2
+    how to use:
+
+    $layout__selector-grid: 0, 2px, 5px, 'disable-10px', 15px, ... (sel:'full',val:100%); // leave not numeric selector grid at the end
+
+    .t_selector {
+       $properties: 'padding-top', 'padding-bottom';
+       @include grid-factory($properties $layout__selector-grid);
+    }
+
+    output:
+    .selector-[xs,sm,md]-[1,2,..]
+    .selector-[xs,sm,md]-0-only // active only on one media query
+*/
+/*
+@mixin grid-factory ($properties, $listColumnSizes) {
+    $mapMediaQuery: $theme__bootstrap_media_query;
+    $mapMediaQuerySelective: $theme__bootstrap_media_query_selective;
+
+
+    // loop media query
+    @each $media-name, $media-query-breakpoint in $mapMediaQuery {
+
+    // bootstrap media query
+    @media (min-width: $media-query-breakpoint) {
+
+    // loop column
+    @each $colSize in $listColumnSizes {
+        //@debug(&,type_of($colSize),$colSize,$media-name);
+
+        // number
+        @if type_of($colSize) == number  { // check if the value is a disabled property
+            $colIndex: index($listColumnSizes, $colSize) - 1;
+
+            // output .namespace-xs-0
+            &-#{$media-name}-#{$colIndex} {
+            @each $propName in $properties {
+                #{$propName}: $colSize !important;
+            }
+            }
+        }
+
+        // map
+        @if type_of($colSize) == map { // special grid value
+            $colName:  map-get($colSize, 'sel');
+            $colValue: map-get($colSize, 'val');
+
+            // output .namespace-xs-full
+            &-#{$media-name}-#{$colName} {
+            @each $propName in $properties {
+                #{$propName}: $colValue !important;
+            }
+            }
+        }
+
+    }
+    }
+
+    }
+
+
+    // loop media query
+    @each $media-name, $media-query-breakpoint in $mapMediaQuerySelective {
+
+    // selective media query
+    @media #{$media-query-breakpoint} {
+        &-#{$media-name}-0-only {
+        @each $propName in $properties {
+            #{$propName}: 0 !important;
+        }
+        }
+    }
+    }
+
+}
+
+@define-mixin grid-factory $properties $listColumnSizes {
+    padding-left: 16px;
+    &::after {
+        content: "";
+        background-url: url(/icons/$(name).png);
+    }
+}
+
+.search {
+    @mixin icon search;
+}*/
