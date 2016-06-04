@@ -15,6 +15,7 @@ var
     // css
     postcss           = require('gulp-postcss'),
     cssEach           = require('postcss-each'),
+    cssConditions     = require('postcss-conditionals'),
     cssMixins         = require('postcss-mixins'),
     cssNext           = require('postcss-cssnext'),
     cssLint           = require('stylelint'),
@@ -60,7 +61,8 @@ gulp.task('css', function() {
         .pipe(concat("app.css"))
         .pipe(postcss([
             cssEach,
-            cssMixins(),
+            cssConditions,
+            //cssMixins(),
             cssNext({
                 browsers: config.browserSupport,
                 warnForDuplicates: false
@@ -74,7 +76,7 @@ gulp.task('css', function() {
             }),
             // cssMd({need options}),
             cssMqMin(),
-            cssNano(),
+            //cssNano(),
             cssDoiuse({
                 browsers: config.browserSupport
             })
