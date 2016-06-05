@@ -72,16 +72,14 @@
     }
     }
 
-}
-
-@define-mixin grid-factory $properties $listColumnSizes {
-    padding-left: 16px;
-    &::after {
-        content: "";
-        background-url: url(/icons/$(name).png);
-    }
-}
-
-.search {
-    @mixin icon search;
 }*/
+
+@define-mixin grid-spacing $property, $value, $index {
+    &Xs$(index)          { $(property):        $(value)px; }
+    &HlXs$(index)        { $(property)-top:    $(value)px; $(property)-bottom: $(value)px; }
+    &VlXs$(index)        { $(property)-right:  $(value)px; $(property)-left: $(value)px; }
+    &TopXs$(index)       { $(property)-top:    $(value)px; }
+    &RightXs$(index)     { $(property)-right:  $(value)px; }
+    &BottomXs$(index)    { $(property)-bottom: $(value)px; }
+    &LeftXs$(index)      { $(property)-left:   $(value)px; }
+}

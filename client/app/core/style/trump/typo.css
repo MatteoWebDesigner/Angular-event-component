@@ -1,52 +1,52 @@
-.tCor-FontSize {
+.tCor-Fs {
     @each $value, $i in 0, 10, 12, 14, 16, 18, 20, 24 {
-        &Xs$(i) {
-            font-size: $(value)px;
-        }
-        
-        @media (--screen-min-sm) {
-            &Sm$(i) {
+        @if $value != 'disable' {
+            &Xs$(i) {
                 font-size: $(value)px;
             }
-        }
-        
-        @media (--screen-min-md) {
-            &Md$(i) {
-                font-size: $(value)px;
+            
+            @media (--screen-min-sm) {
+                &Sm$(i) {
+                    font-size: $(value)px;
+                }
+            }
+            
+            @media (--screen-min-md) {
+                &Md$(i) {
+                    font-size: $(value)px;
+                }
             }
         }
     }
 }
 
-.tCor-Padding {
-    @each $value, $i in 0, 2, 'disable', 10, 15, 30, 45, 60 {
-        @if $value != 'disable' {    
-                &Xs$(i)           { padding:        $(value)px; }
-                &HorizontalXs$(i) { padding-right:  $(value)px; padding-left: $(value)px; }
-                &VerticalXs$(i)   { padding-top:    $(value)px; padding-bottom: $(value)px; }
-                &TopXs$(i)        { padding-top:    $(value)px; }
-                &RightXs$(i)      { padding-right:  $(value)px; }
-                &BottomXs$(i)     { padding-bottom: $(value)px; }
-                &LeftXs$(i)       { padding-left:   $(value)px; }
+.tCor-Pd {
+    @each $value, $i in 0, 2, 5, 10, 15, 30, 45, 60 {
+        @if $value != 'disable' {
+            @mixin grid-spacing padding, $(value), $(i);
             
             @media (--screen-min-sm) {
-                &Sm$(i)           { padding:        $(value)px; }
-                &HorizontalSm$(i) { padding-right:  $(value)px; padding-left: $(value)px; }
-                &VerticalSm$(i)   { padding-top:    $(value)px; padding-bottom: $(value)px; }
-                &TopSm$(i)        { padding-top:    $(value)px; }
-                &RightSm$(i)      { padding-right:  $(value)px; }
-                &BottomSm$(i)     { padding-bottom: $(value)px; }
-                &LeftSm$(i)       { padding-left:   $(value)px; }
+                @mixin grid-spacing padding, $(value), $(i);
             }
             
             @media (--screen-min-md) {
-                &Md$(i)           { padding:        $(value)px; }
-                &HorizontalMd$(i) { padding-right:  $(value)px; padding-left: $(value)px; }
-                &VerticalMd$(i)   { padding-top:    $(value)px; padding-bottom: $(value)px; }
-                &TopMd$(i)        { padding-top:    $(value)px; }
-                &RightMd$(i)      { padding-right:  $(value)px; }
-                &BottomMd$(i)     { padding-bottom: $(value)px; }
-                &LeftMd$(i)       { padding-left:   $(value)px; }
+                @mixin grid-spacing padding, $(value), $(i);
+            }
+        }
+    }
+}
+
+.tCor-Mg {
+    @each $value, $i in 0, 2, 5, 10, 15, 30, 45, 60 {
+        @if $value != 'disable' {
+            @mixin grid-spacing margin, $(value), $(i);
+            
+            @media (--screen-min-sm) {
+                @mixin grid-spacing margin, $(value), $(i);
+            }
+            
+            @media (--screen-min-md) {
+                @mixin grid-spacing margin, $(value), $(i);
             }
         }
     }

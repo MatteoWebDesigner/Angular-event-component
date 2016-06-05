@@ -60,9 +60,9 @@ gulp.task('css', function() {
         .pipe(sourcemaps.init())
         .pipe(concat("app.css"))
         .pipe(postcss([
-            cssEach,
+            cssEach, // each is better comes before mixin
             cssConditions,
-            //cssMixins(),
+            cssMixins(), // postcss mixin are really fragile
             cssNext({
                 browsers: config.browserSupport,
                 warnForDuplicates: false
@@ -75,7 +75,7 @@ gulp.task('css', function() {
                 debug: true
             }),
             // cssMd({need options}),
-            cssMqMin(),
+            //cssMqMin(),
             //cssNano(),
             cssDoiuse({
                 browsers: config.browserSupport
