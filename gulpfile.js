@@ -75,8 +75,8 @@ gulp.task('css', function() {
                 debug: true
             }),
             // cssMd({need options}),
-            //cssMqMin(),
-            //cssNano(),
+            cssMqMin(),
+            cssNano(),
             cssDoiuse({
                 browsers: config.browserSupport
             })
