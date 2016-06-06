@@ -49,7 +49,11 @@ router.get('/', (req, res) => {
     res.render('index');
 });
 
-router.get('/movie/:slug', (req, res) => {
+router.get('/movies/', (req, res) => {
+    res.render('movie_list');
+});
+
+router.get('/movies/:slug', (req, res) => {
     res.render(
         'profile',
         {

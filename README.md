@@ -41,6 +41,7 @@ The following flavor are used: vendor-style, tag element style, ECSS, ATOMIC CSS
 
 
 # Project requirement
+- Home
 - Movie list page,  
 - Movie Profile page  
 - Admin movie list  
