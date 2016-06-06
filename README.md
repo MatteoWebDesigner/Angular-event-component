@@ -7,6 +7,11 @@ Node, Express and MongoDB as BackEnd.
 npm run-script db  
 npm run-script debug
 
+# Services fix
+database is not running because is lock
+> ps -ax | grep mongo  
+kill <number>  
+
 # build FE assets
 > gulp
 

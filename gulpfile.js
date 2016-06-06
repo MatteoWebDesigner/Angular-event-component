@@ -23,11 +23,11 @@ var
     cssMqMin          = require("css-mqpacker"),
     cssNano           = require('cssnano'),
     cssMd             = require('mdcss'),
-    
+
     // js
     uglify            = require('gulp-uglify'),
     ngAnnotate        = require('gulp-ng-annotate'),
-    
+
     // config
     config            = require("./config.js"),
     bundle            = require("./bundle.js")
@@ -86,7 +86,7 @@ gulp.task('css', function() {
         .pipe(gulp.dest(config.dist));
 });
 
-gulp.task('jsVendor', () => {    
+gulp.task('jsVendor', () => {
     return gulp.src(bundle.jsLibs)
         .pipe(sourcemaps.init())
         .pipe(concat("vendor.js"))
@@ -98,7 +98,7 @@ gulp.task('jsVendor', () => {
         .pipe(gulp.dest(config.dist));
 });
 
-gulp.task('js', () => {    
+gulp.task('js', () => {
     return gulp.src(bundle.js)
         .pipe(sourcemaps.init())
         .pipe(babel({presets: ['es2015']}))
