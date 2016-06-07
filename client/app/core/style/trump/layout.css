@@ -1,1 +1,3 @@
-.tCor-FullWidth { width: 100% }
+.tCor-FullWidth { width: 100% !important; }
+
+.tCor-BgGrayLight { background-color: var(--color-gray-light); }

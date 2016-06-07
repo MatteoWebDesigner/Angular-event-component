@@ -10,6 +10,20 @@
     --font-medium:    14px;
     --font-small:     12px;
 
+    /* color */
+    --color-colorbase:  black;
+    --color-bgbase:     white;
+
+    --color-primary:    #428bca;
+    --color-success:    #5cb85c;
+    --color-warning:    #f0ad4e;
+    --color-danger:     #d9534f;
+    
+    --color-gray-dark:  #666;
+    --color-gray:       #ccc;
+    --color-gray-light: #e9e9e9;
+
+    /* media query */
     @custom-media --screen-min-xs (min-width: 0px);
     @custom-media --screen-min-sm (min-width: 768px);
     @custom-media --screen-min-md (min-width: 1200px);

@@ -2,9 +2,11 @@
 
 {% block content %}
 <div class="container">
-    {% include "./partials/nav.html" %}
+    <div class="tCor-MgBottomXs4">
+        {% include "./partials/nav.html" %}
+    </div>
 
-    <h1>Movie list</h1>
+    <h1 class="bCor-h1e6Reset cCor-TextHeader tCor-MgBottomXs4">Movie list</h1>
 
     {% for item in [1,2,3,4] %}
     <a href="/movies/teenage-mutant-ninja-turtles:-out-of-the-shadows-(2016)">

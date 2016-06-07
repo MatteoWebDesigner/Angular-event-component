@@ -2,28 +2,39 @@
 
 {% block content %}
 <div class="container">
-    {% include "./partials/nav.html" %}
-
-    <h1>Homepage</h1>
-    <p>
-        This is the homepage, is an overview of the website.
-    </p>
+    <div class="tCor-MgBottomXs4">
+        {% include "./partials/nav.html" %}
+    </div>
+    
+    <h1 class="bCor-h1e6Reset cCor-TextHeader tCor-MgBottomXs4">Homepage</h1>
 
     <div class="row">
-        <div class="col-xs-12 col-sm-8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur felis enim, fermentum sed felis a, dignissim malesuada dui. Maecenas vulputate, urna quis dapibus elementum, ante leo ultrices enim, ac pharetra odio sem ac felis. Fusce tincidunt augue in mi porttitor laoreet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras condimentum ante quis rhoncus mollis. Donec ac odio nec eros suscipit euismod vulputate ac eros. Etiam eget mollis urna. Etiam sagittis faucibus sapien, eu ullamcorper turpis vestibulum sed. Pellentesque varius nec eros ac consectetur. In mattis purus et tristique tempor. Nunc aliquet massa neque, id eleifend mi placerat a.</p>
-        </div>
-        <div class="col-xs-12 col-sm-4">
+        <main class="col-xs-12 col-sm-8">
+            <p>This is the homepage, is an overview of the website.</p>
+            <article>
+                <h2 class="bCor-h1e6Reset">Lorem ipsum dolor sit amet</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur felis enim, fermentum sed felis a, dignissim malesuada dui. Maecenas vulputate, urna quis dapibus elementum, ante leo ultrices enim, ac pharetra odio sem ac felis. Fusce tincidunt augue in mi porttitor laoreet.</p> 
+                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras condimentum ante quis rhoncus mollis. Donec ac odio nec eros suscipit euismod vulputate ac eros. Etiam eget mollis urna. Etiam sagittis faucibus sapien, eu ullamcorper turpis vestibulum sed. Pellentesque varius nec eros ac consectetur. In mattis purus et tristique tempor. Nunc aliquet massa neque, id eleifend mi placerat a.</p>
+            </article>
+        </main>
+        <aside class="col-xs-12 col-sm-4">
+            <h3 class="bCor-h1e6Reset cCor-TextHeader tCor-MgBottomXs4">Latest movies</h3>
+
             {% for item in [1,2,3,4] %}
             <div class="tCor-MgBottomXs4">
                 <img src="https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg" alt="turtle cover" class="tCor-MgBottomXs4 tCor-FullWidth"/>
-                <h2 class="tCor-MgXs0">Teenage Mutant Ninja Turtles: Out of the Shadows (2016)</h2>
+
+                <h2 class="bCor-h1e6Reset cCor-TextSubHeader tCor-MgBottomXs4">Teenage Mutant Ninja Turtles: Out of the Shadows (2016)</h2>
+
                 <p class="tCor-FontSize">Description</p>
             </div>
             {% endfor %}
-        </div>
+        
+            <div class="text-center">
+                <a href="/movies/" class="btn btn-primary">View More</a>
+            </div>
+        </aside>
     </div>
 
-    
 </div>
 {% endblock %}
