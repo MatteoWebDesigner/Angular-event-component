@@ -17,6 +17,7 @@ var
     cssEach           = require('postcss-each'),
     cssConditions     = require('postcss-conditionals'),
     cssMixins         = require('postcss-mixins'),
+    cssApply         = require('postcss-apply'),
     cssNext           = require('postcss-cssnext'),
     cssLint           = require('stylelint'),
     cssDoiuse         = require('doiuse'),
@@ -63,6 +64,7 @@ gulp.task('css', function() {
             cssEach, // each is better comes before mixin
             cssConditions,
             cssMixins(), // postcss mixin are really fragile
+            cssApply,
             cssNext({
                 browsers: config.browserSupport,
                 warnForDuplicates: false
@@ -74,9 +76,9 @@ gulp.task('css', function() {
                 }],
                 debug: true
             }),
-            // cssMd({need options}),
-            cssMqMin(),
-            cssNano(),
+            // cssMd({need options}), // generate style guide
+            //cssMqMin(),
+            //cssNano(),
             cssDoiuse({
                 browsers: config.browserSupport
             })
