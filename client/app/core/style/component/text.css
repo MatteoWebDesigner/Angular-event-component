@@ -1,11 +1,14 @@
 .cCor-TextHeader {
     font-size:   var(--font-huge);
-    font-family: var(--font-sans-sarif);
+    font-family: var(--font-sarif);
+    font-weight: bold;
 }
 
 .cCor-TextSubHeader {
     font-size:   var(--font-big);
-    font-family: var(--font-sans-sarif);
+    font-family: var(--font-sarif);
+    font-weight: bold;
+    line-height: var(--line-height-medium);
 }
 
 .cCor-TextSummary {

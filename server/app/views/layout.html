@@ -28,10 +28,17 @@
         <meta name="theme-color" content="#ffffff">
     
         {# style #}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
         <link rel="stylesheet" href="/vendor.css"/>
         <link rel="stylesheet" href="/app.css"/>
     </head>
     <body>
+        <div class="cCor-Header">
+            <div class="container">
+                {% include "./partials/nav.html" %}
+            </div>
+        </div>
+
         {% block content %}{% endblock %}
         
         {% block footer %}
