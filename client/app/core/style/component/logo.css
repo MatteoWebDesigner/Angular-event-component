@@ -1,0 +1,7 @@
+.cCor-Logo {
+    transition: filter 500ms;
+    filter: brightness(1);
+    &:hover {
+        filter: brightness(1.2);
+    }
+}
