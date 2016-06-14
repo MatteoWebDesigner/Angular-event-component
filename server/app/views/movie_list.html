@@ -2,10 +2,6 @@
 
 {% block content %}
 <div class="container">
-    <div class="tCor-MgBottomXs4">
-        {% include "./partials/nav.html" %}
-    </div>
-
     <h1 class="bCor-h1e6Reset cCor-TextHeader tCor-MgBottomXs4">Movie list</h1>
 
     {% for item in [1,2,3,4] %}
@@ -15,7 +11,7 @@
                 <img src="https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg" alt="turtle cover" class="tCor-FullWidth"/>
             </div>
             <div class="col-xs-12 col-sm-8">
-                <h2>Teenage Mutant Ninja Turtles: Out of the Shadows (2016)</h2>
+                <h2 class="bCor-h1e6Reset cCor-TextSubHeader tCor-MgBottomXs3">Teenage Mutant Ninja Turtles: Out of the Shadows (2016)</h2>
 
                 <p class="tCor-FontSize">
                     Description
@@ -25,6 +21,8 @@
     </a>
     {% endfor %}
 
-    load more
+    <div class="text-center">
+        <a href="/movies/" class="btn btn-primary">View More</a>
+    </div>
 </div>
 {% endblock %}
