@@ -17,7 +17,7 @@ var
     cssEach           = require('postcss-each'),
     cssConditions     = require('postcss-conditionals'),
     cssMixins         = require('postcss-mixins'),
-    cssApply         = require('postcss-apply'),
+    cssApply          = require('postcss-apply'),
     cssNext           = require('postcss-cssnext'),
     cssLint           = require('stylelint'),
     cssDoiuse         = require('doiuse'),

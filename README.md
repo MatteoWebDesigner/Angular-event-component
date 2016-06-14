@@ -2,15 +2,23 @@
 Experimenting new CSS architecture, Angular 1.5 component architecture, and RxJs for event base communication.
 Node, Express and MongoDB as BackEnd.
 
-# run server services
-> npm start  
-npm run-script db  
-npm run-script debug
+# Setup
+> npm install  
+bower install
 
-# Services fix
+# run database first
+> npm run-script db
+
+#### database fix if you have an error
 database is not running because is lock
 > ps -ax | grep mongo  
 kill <number>  
+
+# run server
+> npm start
+
+# run server debug mode
+> npm run-script debug
 
 # build FE assets
 > gulp
