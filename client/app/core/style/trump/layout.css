@@ -2,4 +2,34 @@
 
 .tCor-Block { display: block; }
 
-.tCor-BgGrayLight { background-color: var(--color-gray-light); }
+.tCor-Pd {
+    @each $value, $i in 0, 2, 5, 10, 15, 30, 45, 60 {
+        @if $value != 'disable' {
+            @mixin grid-spacing padding, $(value), $(i);
+            
+            @media (--screen-min-sm) {
+                @mixin grid-spacing padding, $(value), $(i);
+            }
+            
+            @media (--screen-min-md) {
+                @mixin grid-spacing padding, $(value), $(i);
+            }
+        }
+    }
+}
+
+.tCor-Mg {
+    @each $value, $i in 0, 2, 5, 10, 15, 30, 45, 60 {
+        @if $value != 'disable' {
+            @mixin grid-spacing margin, $(value), $(i);
+            
+            @media (--screen-min-sm) {
+                @mixin grid-spacing margin, $(value), $(i);
+            }
+            
+            @media (--screen-min-md) {
+                @mixin grid-spacing margin, $(value), $(i);
+            }
+        }
+    }
+}
