@@ -25,3 +25,7 @@
     font-size: var(--font-small);
     font-family: var(--font-sarif);
 }
+
+.cCor-CursorPointer {
+    cursor: pointer;
+}
