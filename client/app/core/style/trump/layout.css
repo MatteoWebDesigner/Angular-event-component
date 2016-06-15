@@ -5,14 +5,20 @@
 .tCor-Pd {
     @each $value, $i in 0, 2, 5, 10, 15, 30, 45, 60 {
         @if $value != 'disable' {
-            @mixin grid-spacing padding, $(value), $(i);
-            
+            @mixin grid-spacing padding, $(value), $(i), Xs;
+        }
+    }
+    @each $value, $i in 0, 2, 5, 10, 15, 30, 45, 60 {
+        @if $value != 'disable' {
             @media (--screen-min-sm) {
-                @mixin grid-spacing padding, $(value), $(i);
+                @mixin grid-spacing padding, $(value), $(i), Sm;
             }
-            
+        }
+    }
+    @each $value, $i in 0, 2, 5, 10, 15, 30, 45, 60 {
+        @if $value != 'disable' {            
             @media (--screen-min-md) {
-                @mixin grid-spacing padding, $(value), $(i);
+                @mixin grid-spacing padding, $(value), $(i), Md;
             }
         }
     }
@@ -21,14 +27,20 @@
 .tCor-Mg {
     @each $value, $i in 0, 2, 5, 10, 15, 30, 45, 60 {
         @if $value != 'disable' {
-            @mixin grid-spacing margin, $(value), $(i);
-            
+            @mixin grid-spacing margin, $(value), $(i), Xs;
+        }
+    }
+    @each $value, $i in 0, 2, 5, 10, 15, 30, 45, 60 {
+        @if $value != 'disable' {
             @media (--screen-min-sm) {
-                @mixin grid-spacing margin, $(value), $(i);
+                @mixin grid-spacing margin, $(value), $(i), Sm;
             }
-            
+        }
+    }
+    @each $value, $i in 0, 2, 5, 10, 15, 30, 45, 60 {
+        @if $value != 'disable' {            
             @media (--screen-min-md) {
-                @mixin grid-spacing margin, $(value), $(i);
+                @mixin grid-spacing margin, $(value), $(i), Md;
             }
         }
     }

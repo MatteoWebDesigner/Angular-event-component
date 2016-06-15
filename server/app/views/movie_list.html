@@ -4,10 +4,14 @@
 <div class="container">
     <h1 class="bCor-h1e6Reset cCor-TextHeader tCor-MgBottomXs4">Movie list</h1>
 
+    {Search input}<br><br>
+
+    {Filters}
+
     {% for item in [1,2,3,4] %}
     <a href="/movies/teenage-mutant-ninja-turtles:-out-of-the-shadows-(2016)" class="bCor-AncReset">
         <div class="row tCor-MgBottomXs4">
-            <div class="col-xs-12 col-sm-4">
+            <div class="col-xs-12 col-sm-4 tCor-MgBottomXs3 tCor-MgBottomSm0">
                 <img src="https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg" alt="turtle cover" class="tCor-FullWidth"/>
             </div>
             <div class="col-xs-12 col-sm-8">
@@ -22,7 +26,7 @@
     {% endfor %}
 
     <div class="text-center">
-        <a href="/movies/" class="btn btn-primary">View More</a>
+        <a href="/movies/" class="btn btn-lg btn-primary tCor-PdHlXs7">View More {lazy loading}</a>
     </div>
 </div>
 {% endblock %}
