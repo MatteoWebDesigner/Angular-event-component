@@ -1,19 +1,36 @@
-const express    = require('express');
-const app        = express();
-const router     = express.Router();
-const swig       = require('swig');
-const path       = require('path');
-const mongoose   = require('mongoose');
-const bodyParser = require('body-parser');
+const express      = require('express');
+const app          = express();
+const router       = express.Router();
+const swig         = require('swig');
+const path         = require('path');
+const mongoose     = require('mongoose');
+const mongooseSlug = require('mongoose-slug-generator');
+const bodyParser   = require('body-parser');
 var db;
 
 
 // database
 mongoose.connect('mongodb://localhost:27017/matteo');
+mongoose.plugin(mongooseSlug),
 db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log('database connnected');
+
+    var MovieModel = require('./model/movie.js');
+    var Newmovie = new MovieModel({
+        title: 'Teenage Mutant Ninja Turtles: Out of the Shadows (2016)',
+        description: 'Phasellus id ex ac sem eleifend ullamcorper. Vivamus cursus orci lectus. Morbi nisl diam, efficitur et lorem a, pellentesque pharetra tellus.',
+        cover: {
+            url: 'https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg',
+            alt: 'turtle cover'
+        },
+        vote: 5,
+        //date_release: Date,
+        published: true
+    });
+
+    Newmovie.save();
 });
 
 
@@ -46,11 +63,35 @@ router.use(function (req, res, next) {
 
 // routes
 router.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {
+        movies: [
+            {
+                title: 'Teenage Mutant Ninja Turtles: Out of the Shadows (2016)',
+                description: 'Phasellus id ex ac sem eleifend ullamcorper. Vivamus cursus orci lectus. Morbi nisl diam, efficitur et lorem a, pellentesque pharetra tellus.',
+                link: '/movies/teenage-mutant-ninja-turtles:-out-of-the-shadows-(2016)',
+                cover: {
+                    url: 'https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg',
+                    alt: 'turtle cover'
+                }
+            }
+        ]
+    });
 });
 
 router.get('/movies/', (req, res) => {
-    res.render('movie_list');
+    res.render('movie_list', {
+        movies: [
+            {
+                title: 'Teenage Mutant Ninja Turtles: Out of the Shadows (2016)',
+                description: 'Phasellus id ex ac sem eleifend ullamcorper. Vivamus cursus orci lectus. Morbi nisl diam, efficitur et lorem a, pellentesque pharetra tellus.',
+                link: '/movies/teenage-mutant-ninja-turtles:-out-of-the-shadows-(2016)',
+                cover: {
+                    url: 'https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg',
+                    alt: 'turtle cover'
+                }
+            }
+        ]
+    });
 });
 
 router.get('/movies/:slug', (req, res) => {

@@ -16,27 +16,23 @@
 
     {Filters}
     
-
     <!-- loading -->
     <div class="panel panel-default">
         <div class="panel-body text-center">
             <i class="icon icon-spin animate-spin tCor-FsXs7"></i>
         </div>
     </div>
-    {% for item in [1,2,3,4] %}
+    {% for item in movies %}
     <div class="panel panel-default">
         <div class="panel-body">
-            <a href="/movies/teenage-mutant-ninja-turtles:-out-of-the-shadows-(2016)" class="bCor-AncReset">
+            <a href="{{item.link}}" class="bCor-AncReset">
                 <div class="row">
                     <div class="col-xs-12 col-sm-4 tCor-MgBottomXs3 tCor-MgBottomSm0">
-                        <img src="https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg" alt="turtle cover" class="tCor-FullWidth"/>
+                        <img src="{{item.cover.url}}" alt="{{item.cover.alt}}" class="tCor-FullWidth"/>
                     </div>
                     <div class="col-xs-12 col-sm-8">
-                        <h2 class="bCor-h1e6Reset cCor-TextSubHeader tCor-MgBottomXs3">Teenage Mutant Ninja Turtles: Out of the Shadows (2016)</h2>
-
-                        <p class="bCor-parReset tCor-FontSize">
-                            Phasellus id ex ac sem eleifend ullamcorper. Vivamus cursus orci lectus. Morbi nisl diam, efficitur et lorem a, pellentesque pharetra tellus. 
-                        </p>
+                        <h2 class="bCor-h1e6Reset cCor-TextSubHeader tCor-MgBottomXs3">{{item.title}}</h2>
+                        <p class="bCor-parReset tCor-FontSize">{{item.description}}</p>
                     </div>
                 </div>
             </a>

@@ -29,13 +29,11 @@
         <aside class="col-xs-12 col-sm-4">
             <h3 class="bCor-h1e6Reset cCor-TextHeader tCor-MgBottomXs4">Latest movies</h3>
 
-            {% for item in [1,2,3,4] %}
-            <a href="/movies/teenage-mutant-ninja-turtles:-out-of-the-shadows-(2016)" class="bCor-AncReset tCor-Block tCor-MgBottomXs5">
-                <img src="https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg" alt="turtle cover" class="tCor-MgBottomXs3 tCor-FullWidth"/>
-
-                <h2 class="bCor-h1e6Reset cCor-TextSubHeader tCor-MgBottomXs2">Teenage Mutant Ninja Turtles: Out of the Shadows (2016)</h2>
-
-                <p class="tCor-FontSize">Description</p>
+            {% for item in movies %}
+            <a href="{{item.link}}" class="bCor-AncReset tCor-Block tCor-MgBottomXs5">
+                <img src="{{item.cover.url}}" alt="{{item.cover.alt}}" class="tCor-MgBottomXs3 tCor-FullWidth"/>
+                <h2 class="bCor-h1e6Reset cCor-TextSubHeader tCor-MgBottomXs2">{{item.title}}</h2>
+                <p class="tCor-FontSize">{{item.description}}</p>
             </a>
             {% endfor %}
         
