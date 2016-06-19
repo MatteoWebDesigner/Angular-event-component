@@ -115,6 +115,10 @@ router.get('/movies/:slug', (req, res) => {
         });
 });
 
+router.get('/admin/', (req, res) => {
+    res.render('admin');
+});
+
 app.use('/', router);
 
 

@@ -1,4 +1,10 @@
-<ul class="nav nav-pills">
-  <li role="presentation" class="{% if routeMatch('/') %}active{% endif %} tCor-MgRightXs3"><a href="/">Home</a></li>
-  <li role="presentation" class="{% if routeMatch('/movies/') %}active{% endif %}"><a href="/movies/">Movies</a></li>
-</ul>
+<div class="clearfix">
+    <ul class="nav nav-pills pull-left">
+      <li role="presentation" class="{% if routeMatch('/') %}active{% endif %} tCor-MgRightXs3"><a href="/">Home</a></li>
+      <li role="presentation" class="{% if routeMatch('/movies/') %}active{% endif %}"><a href="/movies/">Movies</a></li>
+    </ul>
+
+    <ul class="nav nav-pills pull-right">
+      <li role="presentation" class="{% if routeMatch('/admin/') %}active{% endif %} tCor-MgRightXs3"><a href="/admin/">Admin</a></li>
+    </ul>
+</div>
