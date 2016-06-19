@@ -2,15 +2,15 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="bCor-h1e6Reset cCor-TextHeader tCor-MgBottomXs3">Teenage Mutant Ninja Turtles: Out of the Shadows (2016)</h1>
+    <h1 class="bCor-h1e6Reset cCor-TextHeader tCor-MgBottomXs3">{{movie.title}}</h1>
 
     <div class="row tCor-MgBottomXs4">
         <div class="col-xs-12 col-sm-4">
-            <img src="https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg" alt="turtle cover" class="tCor-FullWidth"/>
+            <img src="{{movie.cover.url}}" alt="{{movie.cover.alt}}" class="tCor-FullWidth"/>
         </div>
         <div class="col-xs-12 col-sm-8">
             <p class="tCor-FontSize">
-                Description
+                {{movie.description}}
             </p>
         </div>
     </div>

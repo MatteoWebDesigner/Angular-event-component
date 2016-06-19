@@ -25,7 +25,6 @@
     "mdcss": "^1.5.2",
     "mongoose": "^4.4.19",
     "mongoose-slug-generator": "^1.0.4",
-    "mongoose-url-slugs": "^0.2.1",
     "node-inspector": "^0.12.8",
     "nodemon": "^1.9.2",
     "postcss-apply": "^0.2.0",

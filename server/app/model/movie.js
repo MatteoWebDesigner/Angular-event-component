@@ -1,4 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose     = require('mongoose');
+const mongooseSlug = require('mongoose-slug-generator');
+
+mongoose.plugin(mongooseSlug);
 
 var movieSchema = mongoose.Schema({
     title: String,

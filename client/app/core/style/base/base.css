@@ -18,7 +18,8 @@ h1, h2, h3, h4, h5, h6 {
 .bCor-AncReset {
     color: var(--color-colorbase);
 
-    &:hover {
+    &:hover,
+    &:focus {
         color: var(--color-colorbase);
         text-decoration: none;
     }

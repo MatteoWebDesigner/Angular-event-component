@@ -4,33 +4,31 @@ const router       = express.Router();
 const swig         = require('swig');
 const path         = require('path');
 const mongoose     = require('mongoose');
-const mongooseSlug = require('mongoose-slug-generator');
 const bodyParser   = require('body-parser');
 var db;
 
 
 // database
 mongoose.connect('mongodb://localhost:27017/matteo');
-mongoose.plugin(mongooseSlug),
 db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log('database connnected');
 
-    var MovieModel = require('./model/movie.js');
-    var Newmovie = new MovieModel({
-        title: 'Teenage Mutant Ninja Turtles: Out of the Shadows (2016)',
-        description: 'Phasellus id ex ac sem eleifend ullamcorper. Vivamus cursus orci lectus. Morbi nisl diam, efficitur et lorem a, pellentesque pharetra tellus.',
-        cover: {
-            url: 'https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg',
-            alt: 'turtle cover'
-        },
-        vote: 5,
-        //date_release: Date,
-        published: true
-    });
-
-    Newmovie.save();
+    // var MovieModel = require('./model/movie.js');
+    // var Newmovie = new MovieModel({
+    //     title: 'Teenage Mutant Ninja Turtles: Out of the Shadows (2016)',
+    //     description: 'Phasellus id ex ac sem eleifend ullamcorper. Vivamus cursus orci lectus. Morbi nisl diam, efficitur et lorem a, pellentesque pharetra tellus.',
+    //     cover: {
+    //         url: 'https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg',
+    //         alt: 'turtle cover'
+    //     },
+    //     vote: 5,
+    //     release_date: Date('2014-12-08'),
+    //     published: true
+    // });
+    // 
+    // Newmovie.save();
 });
 
 
@@ -63,44 +61,50 @@ router.use(function (req, res, next) {
 
 // routes
 router.get('/', (req, res) => {
-    res.render('index', {
-        movies: [
-            {
-                title: 'Teenage Mutant Ninja Turtles: Out of the Shadows (2016)',
-                description: 'Phasellus id ex ac sem eleifend ullamcorper. Vivamus cursus orci lectus. Morbi nisl diam, efficitur et lorem a, pellentesque pharetra tellus.',
-                link: '/movies/teenage-mutant-ninja-turtles:-out-of-the-shadows-(2016)',
-                cover: {
-                    url: 'https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg',
-                    alt: 'turtle cover'
-                }
-            }
-        ]
-    });
+    const MovieModel = require('./model/movie.js');
+
+    MovieModel
+        .find()
+        .limit(5)
+        .exec(function(err, data) {
+            if (err) return console.error(err);
+            
+            res.render('index', {
+                movies: data
+            });
+        });
 });
 
 router.get('/movies/', (req, res) => {
-    res.render('movie_list', {
-        movies: [
-            {
-                title: 'Teenage Mutant Ninja Turtles: Out of the Shadows (2016)',
-                description: 'Phasellus id ex ac sem eleifend ullamcorper. Vivamus cursus orci lectus. Morbi nisl diam, efficitur et lorem a, pellentesque pharetra tellus.',
-                link: '/movies/teenage-mutant-ninja-turtles:-out-of-the-shadows-(2016)',
-                cover: {
-                    url: 'https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg',
-                    alt: 'turtle cover'
-                }
-            }
-        ]
-    });
+    const MovieModel = require('./model/movie.js');
+
+    MovieModel
+        .find()
+        .limit(5)
+        .exec(function(err, data) {
+            if (err) return console.error(err);
+            
+            res.render('movie_list', {
+                movies: data
+            });
+        });
 });
 
 router.get('/movies/:slug', (req, res) => {
-    res.render(
-        'profile',
-        {
-            slug: req.params.slug
-        }
-    );
+    const MovieModel = require('./model/movie.js');
+
+    MovieModel
+        .findOne({slug:req.params.slug})
+        .exec(function(err, data) {
+            if (err) return console.error(err);
+            
+            res.render(
+                'profile',
+                {
+                    movie: data
+                }
+            );
+        });
 });
 
 app.use('/', router);
