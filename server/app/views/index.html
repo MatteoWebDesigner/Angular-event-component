@@ -16,7 +16,7 @@
                 <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras condimentum ante quis rhoncus mollis. Donec ac odio nec eros suscipit euismod vulputate ac eros. Etiam eget mollis urna. Etiam sagittis faucibus sapien, eu ullamcorper turpis vestibulum sed. Pellentesque varius nec eros ac consectetur. In mattis purus et tristique tempor. Nunc aliquet massa neque, id eleifend mi placerat a.</p>
             </article>
 
-            <img src="https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg" alt="turtle cover" class="tCor-MgBottomXs3 tCor-FullWidth"/>
+            <img src="http://rview.reviewcentre.com/wp-content/uploads/2011/05/cinema.jpg" alt="turtle cover" class="tCor-MgBottomXs3 tCor-FullWidth"/>
 
             <hr/>
 
@@ -32,7 +32,7 @@
             {% for item in movies %}
             <a href="/movies/{{item.slug}}" class="bCor-AncReset tCor-Block tCor-MgBottomXs5">
                 <img src="{{item.cover.url}}" alt="{{item.cover.alt}}" class="tCor-MgBottomXs3 tCor-FullWidth"/>
-                <h2 class="bCor-h1e6Reset cCor-TextSubHeader tCor-MgBottomXs2">{{item.title}}</h2>
+                <h2 class="bCor-h1e6Reset cCor-TextSubHeader tCor-MgBottomXs2">{{item.title}} ({{item.release_date | date('Y') }})</h2>
                 <p class="tCor-FontSize">{{item.description}}</p>
             </a>
             {% endfor %}

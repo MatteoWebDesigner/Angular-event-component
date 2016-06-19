@@ -21,7 +21,7 @@
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-uglify": "^1.5.3",
-    "lodash": "^4.11.1",
+    "lodash": "^4.13.1",
     "mdcss": "^1.5.2",
     "mongoose": "^4.4.19",
     "mongoose-slug-generator": "^1.0.4",

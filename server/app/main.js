@@ -1,3 +1,4 @@
+const _            = require('lodash');
 const express      = require('express');
 const app          = express();
 const router       = express.Router();
@@ -14,21 +15,6 @@ db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log('database connnected');
-
-    // var MovieModel = require('./model/movie.js');
-    // var Newmovie = new MovieModel({
-    //     title: 'Teenage Mutant Ninja Turtles: Out of the Shadows (2016)',
-    //     description: 'Phasellus id ex ac sem eleifend ullamcorper. Vivamus cursus orci lectus. Morbi nisl diam, efficitur et lorem a, pellentesque pharetra tellus.',
-    //     cover: {
-    //         url: 'https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg',
-    //         alt: 'turtle cover'
-    //     },
-    //     vote: 5,
-    //     release_date: Date('2014-12-08'),
-    //     published: true
-    // });
-    // 
-    // Newmovie.save();
 });
 
 
@@ -62,6 +48,59 @@ router.use(function (req, res, next) {
 // routes
 router.get('/404', (req, res) => {
     res.render('404');
+});
+
+router.get('/', (req, res) => {
+    const MovieModel = require('./model/movie.js');
+    
+    // CREATE
+    // var Newmovie = new MovieModel({
+    //     title: 'Teenage Mutant Ninja Turtles: Out of the Shadows',
+    //     description: 'As Shredder joins forces with mad scientist Baxter Stockman and henchmen Bebop and Rocksteady to take over the world, the Turtles must confront an even greater nemesis: the notorious Krang.',
+    //     cover: {
+    //         url: 'https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg',
+    //         alt: 'turtle cover'
+    //     },
+    //     vote: 6,
+    //     release_date: new Date('2016-06-03'),
+    //     published: true
+    // });
+    // 
+    // Newmovie.save();
+    
+    // UPDATE
+    // MovieModel.findById('576692cbef34d5ea1f1152a7', function(err, movie) {
+    //     if (err) throw err;
+    // 
+    //     _.assign(movie,{
+    //         title: 'Finding Dory',
+    //         description: 'The friendly-but-forgetful blue tang fish reunites with her loved ones, and everyone learns a few things about the real meaning of family along the way.',
+    //         cover: {
+    //             url: 'https://i.ytimg.com/vi/3JNLwlcPBPI/maxresdefault.jpg',
+    //             alt: 'Finding Dory cover'
+    //         },
+    //         vote: 8,
+    //         release_date: new Date('2016-06-17'),
+    //         published: true
+    //     });
+    // 
+    //     // save the user
+    //     movie.save(function(err) {
+    //         if (err) throw err;
+    //         console.log('Movie successfully updated!');
+    //     });
+    // });
+
+    MovieModel
+        .find()
+        .limit(4)
+        .exec(function(err, data) {
+            if (err) return console.error(err);
+            
+            res.render('index', {
+                movies: data
+            });
+        });
 });
 
 router.get('/', (req, res) => {
