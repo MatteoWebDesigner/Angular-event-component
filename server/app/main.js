@@ -55,14 +55,14 @@ router.get('/', (req, res) => {
     
     // CREATE
     // var Newmovie = new MovieModel({
-    //     title: 'Teenage Mutant Ninja Turtles: Out of the Shadows',
-    //     description: 'As Shredder joins forces with mad scientist Baxter Stockman and henchmen Bebop and Rocksteady to take over the world, the Turtles must confront an even greater nemesis: the notorious Krang.',
+    //     title: 'X-Men: Apocalypse',
+    //     description: 'With the emergence of the world\'s first mutant, Apocalypse, the X-Men must unite to defeat his extinction level plan.',
     //     cover: {
-    //         url: 'https://i.ytimg.com/vi/3Z1mfY5qOAQ/maxresdefault.jpg',
-    //         alt: 'turtle cover'
+    //         url: 'http://cdn1-www.comingsoon.net/assets/uploads/2016/04/xmenapocalypseimax-1.jpg',
+    //         alt: 'x-men cover'
     //     },
-    //     vote: 6,
-    //     release_date: new Date('2016-06-03'),
+    //     vote: 7,
+    //     release_date: new Date('2016-05-27'),
     //     published: true
     // });
     // 
