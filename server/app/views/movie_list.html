@@ -25,7 +25,7 @@
     {% for item in movies %}
     <div class="panel panel-default">
         <div class="panel-body">
-            <a href="{{item.link}}" class="bCor-AncReset">
+            <a href="/movies/{{item.slug}}" class="bCor-AncReset">
                 <div class="row">
                     <div class="col-xs-12 col-sm-4 tCor-MgBottomXs3 tCor-MgBottomSm0">
                         <img src="{{item.cover.url}}" alt="{{item.cover.alt}}" class="tCor-FullWidth"/>
