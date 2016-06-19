@@ -1,0 +1,40 @@
+:root {
+    /* font family */
+    --font-sarif: 'Merriweather', serif;
+    --font-sans-sarif: Arial, sans-serif;
+    
+    /* font size */
+    --font-huge:      24px;
+    --font-big:       18px;
+    --font-size-base: 16px;
+    --font-medium:    14px;
+    --font-small:     12px;
+
+    /* color */
+    --color-colorbase:  black;
+    --color-bgbase:     white;
+
+    --color-primary:      #3E863D;
+    --color-primary-dark: #2f692f;
+    --color-primary-light: #4ba349;
+    
+    --color-success:    #5cb85c;
+    --color-warning:    #f0ad4e;
+    --color-danger:     #d9534f;
+    
+    --color-gray-dark:  #666;
+    --color-gray:       #ccc;
+    --color-gray-light: #e9e9e9;
+
+    /* line height */
+    --line-height-big:    1.4;
+    --line-height-medium: 1.2;
+    --line-height-base:   1;
+    --line-height-half:   .5;
+    
+
+    /* media query */
+    @custom-media --screen-min-xs (min-width: 0px);
+    @custom-media --screen-min-sm (min-width: 768px);
+    @custom-media --screen-min-md (min-width: 1200px);
+}

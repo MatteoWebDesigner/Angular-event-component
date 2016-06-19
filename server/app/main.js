@@ -97,22 +97,7 @@ router.get('/', (req, res) => {
         .exec(function(err, data) {
             if (err) return console.error(err);
             
-            res.render('index', {
-                movies: data
-            });
-        });
-});
-
-router.get('/', (req, res) => {
-    const MovieModel = require('./model/movie.js');
-
-    MovieModel
-        .find()
-        .limit(4)
-        .exec(function(err, data) {
-            if (err) return console.error(err);
-            
-            res.render('index', {
+            res.render('site/index', {
                 movies: data
             });
         });
@@ -127,7 +112,7 @@ router.get('/movies/', (req, res) => {
         .exec(function(err, data) {
             if (err) return console.error(err);
             
-            res.render('movie_list', {
+            res.render('site/movie_list', {
                 movies: data
             });
         });
@@ -143,7 +128,7 @@ router.get('/movies/:slug', (req, res) => {
             
             if (data) {
                 res.render(
-                    'profile',
+                    'site/profile',
                     {
                         movie: data
                     }
@@ -155,7 +140,7 @@ router.get('/movies/:slug', (req, res) => {
 });
 
 router.get('/admin/', (req, res) => {
-    res.render('admin');
+    res.render('spa/index');
 });
 
 app.use('/', router);

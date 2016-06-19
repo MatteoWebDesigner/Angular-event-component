@@ -2,12 +2,14 @@
 
 var
     gulp              = require('gulp'),
+    gutil             = require('gulp-util'),
+    parseArgs         = require('minimist')(process.argv.slice(2)),
     _                 = require('lodash'),
     clean             = require('gulp-clean'),
-    babel             = require("gulp-babel"),
+    babel             = require('gulp-babel'),
     concat            = require("gulp-concat"),
     runSequence       = require('run-sequence'),
-    sourcemaps        = require("gulp-sourcemaps"),
+    sourcemaps        = require('gulp-sourcemaps'),
     livereload        = require('gulp-livereload'),
     size              = require('gulp-size'),
 
@@ -21,7 +23,7 @@ var
     cssNext           = require('postcss-cssnext'),
     cssLint           = require('stylelint'),
     cssDoiuse         = require('doiuse'),
-    cssMqMin          = require("css-mqpacker"),
+    cssMqMin          = require('css-mqpacker'),
     cssNano           = require('cssnano'),
     cssMd             = require('mdcss'),
 
@@ -30,9 +32,28 @@ var
     ngAnnotate        = require('gulp-ng-annotate'),
 
     // config
-    config            = require("./config.js"),
-    bundle            = require("./bundle.js")
+    config            = require('./config.js'),
+    bundle            = require('./bundle.js'),
+    bundleSpa         = require('./bundle-spa.js')
 ;
+
+function getBundle () {
+    var 
+        appflag = parseArgs['app'],
+        bundleDictionary = {
+            site: bundle,
+            spa: bundleSpa
+        };
+
+    if (!bundleDictionary[appflag]) {
+        throw new gutil.PluginError({
+            plugin: 'Gulp Bundle task',
+            message: '"' + appflag + '" app flag does not exist. Try one of these: ' + _.keys(bundleDictionary).join(' ')
+        });
+    }
+    
+    return bundleDictionary[appflag];
+};
 
 gulp.task('clean', function() {
     return gulp.src(config.dist)
@@ -45,7 +66,7 @@ gulp.task('assets', function() {
 });
 
 gulp.task('cssVendor', function() {
-    return gulp.src(bundle.cssLibs)
+    return gulp.src(getBundle().cssLibs)
         .pipe(sourcemaps.init())
         .pipe(concat("vendor.css"))
         .pipe(postcss([
@@ -57,7 +78,7 @@ gulp.task('cssVendor', function() {
 });
 
 gulp.task('css', function() {
-    return gulp.src(bundle.css)
+    return gulp.src(getBundle().css)
         .pipe(sourcemaps.init())
         .pipe(concat("app.css"))
         .pipe(postcss([
@@ -89,7 +110,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('jsVendor', () => {
-    return gulp.src(bundle.jsLibs)
+    return gulp.src(getBundle().jsLibs)
         .pipe(sourcemaps.init())
         .pipe(concat("vendor.js"))
         .pipe(uglify().on('error', function(e){
@@ -101,7 +122,7 @@ gulp.task('jsVendor', () => {
 });
 
 gulp.task('js', () => {
-    return gulp.src(bundle.js)
+    return gulp.src(getBundle().js)
         .pipe(sourcemaps.init())
         .pipe(babel({presets: ['es2015']}))
         .pipe(concat("app.js"))

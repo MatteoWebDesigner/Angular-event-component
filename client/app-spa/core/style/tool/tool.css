@@ -1,0 +1,12 @@
+/*
+    <div class="nSpa-PropXs0"></div>
+ */
+@define-mixin grid-spacing $property, $value, $index, $media {
+    &$(media)$(index)          { $(property):        $(value)px; }
+    &Vl$(media)$(index)        { $(property)-top:    $(value)px; $(property)-bottom: $(value)px; }
+    &Hl$(media)$(index)        { $(property)-right:  $(value)px; $(property)-left: $(value)px; }
+    &Top$(media)$(index)       { $(property)-top:    $(value)px; }
+    &Right$(media)$(index)     { $(property)-right:  $(value)px; }
+    &Bottom$(media)$(index)    { $(property)-bottom: $(value)px; }
+    &Left$(media)$(index)      { $(property)-left:   $(value)px; }
+}

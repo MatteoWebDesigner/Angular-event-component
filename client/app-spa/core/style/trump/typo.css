@@ -1,0 +1,29 @@
+.tCor-Fs {
+    @each $value, $i in 0, 10, 12, 14, 16, 18, 20, 24 {
+        @if $value != 'disable' {
+            &Xs$(i) {
+                font-size: $(value)px;
+            }
+        }
+    }
+    @each $value, $i in 0, 10, 12, 14, 16, 18, 20, 24 {
+        @if $value != 'disable' {
+            @media (--screen-min-sm) {
+                &Sm$(i) {
+                    font-size: $(value)px;
+                }
+            }
+        }
+    }
+    @each $value, $i in 0, 10, 12, 14, 16, 18, 20, 24 {
+        @if $value != 'disable' {            
+            @media (--screen-min-md) {
+                &Md$(i) {
+                    font-size: $(value)px;
+                }
+            }
+        }
+    }
+}
+
+.tCor-BgGrayLight { background-color: var(--color-gray-light); }

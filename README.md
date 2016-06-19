@@ -21,7 +21,7 @@ kill <number>
 > npm run-script debug
 
 # build FE assets
-> gulp
+> gulp --app={appName}
 
 # CSS Architecture
 Folder structure product oriented.
