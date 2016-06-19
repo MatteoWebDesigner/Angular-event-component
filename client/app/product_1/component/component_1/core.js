@@ -7,7 +7,7 @@ angular
         bindings: {
             fromAttribute: '@'
         },
-        templateUrl: 'product_1/component/component_1/core.html',
+        templateUrl: '/site/product_1/component/component_1/core.html',
         controller: function($http) {
             this.data = {};
             this.list = [];

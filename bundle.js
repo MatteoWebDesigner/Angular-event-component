@@ -28,7 +28,13 @@ var config = {
         '!client/app/**/style/**/*.js', // avoid postcss js
         'client/app/main.js',
         'client/app/**/*.js'
-    ]
+    ],
+    output: {
+        cssVendor: 'vendor.css',
+        cssApp: 'app.css',
+        jsVendor: 'vendor.js',
+        jsApp: 'app.js'
+    }
 };
 
 module.exports = config;

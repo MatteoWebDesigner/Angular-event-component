@@ -22,14 +22,20 @@ var config = {
         'bower_components/lodash/lodash.js',
         'bower_components/moment/moment.js',
         'bower_components/rxjs/rx.lite.js',
-        'bower_components/angular-ui-router/angular-ui-router.js',
-        'bower_components/angular/angular.js'
+        'bower_components/angular/angular.js',
+        'bower_components/angular-ui-router/release/angular-ui-router.js',
     ],
     js: [
         '!client/app-spa/**/style/**/*.js', // avoid postcss js
         'client/app-spa/main.js',
         'client/app-spa/**/*.js'
-    ]
+    ],
+    output: {
+        cssVendor: 'vendor-spa.css',
+        cssApp: 'app-spa.css',
+        jsVendor: 'vendor-spa.js',
+        jsApp: 'app-spa.js'
+    }
 };
 
 module.exports = config;

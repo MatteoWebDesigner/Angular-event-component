@@ -28,7 +28,8 @@ app.set('views', __dirname + '/views');
 
 // serve static sources
 app.use(express.static( path.join(__dirname, '../public') ));
-app.use(express.static('client/app'));
+app.use('/site',express.static('client/app'));
+app.use('/spa',express.static('client/app-spa'));
 
 
 // parse body API
@@ -139,7 +140,7 @@ router.get('/movies/:slug', (req, res) => {
         });
 });
 
-router.get('/admin/', (req, res) => {
+router.get('/admin/*', (req, res) => { // SPA app route
     res.render('spa/index');
 });
 

@@ -1,4 +1,4 @@
 angular.module('app', [
-    'ui.router',
-    'app.core'
+    'app.core',
+    'app.product_1'
 ]);

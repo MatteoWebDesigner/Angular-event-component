@@ -66,9 +66,10 @@ gulp.task('assets', function() {
 });
 
 gulp.task('cssVendor', function() {
-    return gulp.src(getBundle().cssLibs)
+    var bundle = getBundle();
+    return gulp.src(bundle.cssLibs)
         .pipe(sourcemaps.init())
-        .pipe(concat("vendor.css"))
+        .pipe(concat(bundle.output.cssVendor))
         .pipe(postcss([
             cssNano()
         ]))
@@ -78,9 +79,10 @@ gulp.task('cssVendor', function() {
 });
 
 gulp.task('css', function() {
+    var bundle = getBundle();
     return gulp.src(getBundle().css)
         .pipe(sourcemaps.init())
-        .pipe(concat("app.css"))
+        .pipe(concat(bundle.output.cssApp))
         .pipe(postcss([
             cssEach, // each is better comes before mixin
             cssConditions,
@@ -110,9 +112,11 @@ gulp.task('css', function() {
 });
 
 gulp.task('jsVendor', () => {
-    return gulp.src(getBundle().jsLibs)
+    var bundle = getBundle();
+
+    return gulp.src(bundle.jsLibs)
         .pipe(sourcemaps.init())
-        .pipe(concat("vendor.js"))
+        .pipe(concat(bundle.output.jsVendor))
         .pipe(uglify().on('error', function(e){
             console.log(e);
         }))
@@ -122,10 +126,12 @@ gulp.task('jsVendor', () => {
 });
 
 gulp.task('js', () => {
-    return gulp.src(getBundle().js)
+    var bundle = getBundle();
+
+    return gulp.src(bundle.js)
         .pipe(sourcemaps.init())
         .pipe(babel({presets: ['es2015']}))
-        .pipe(concat("app.js"))
+        .pipe(concat(bundle.output.jsApp))
         .pipe(ngAnnotate())
         .pipe(uglify().on('error', function(e){
             console.log(e);
@@ -143,7 +149,7 @@ gulp.task('watch', () => {
 
 gulp.task('default', () => {
     runSequence(
-        'clean',
+        //'clean',
         // 'css-stylelint',
         // ['fonts','html','jade','cssVendor','css','jsVendor','js'],
         // ['css-deprecated'],
