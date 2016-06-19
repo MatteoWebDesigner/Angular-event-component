@@ -60,12 +60,16 @@ router.use(function (req, res, next) {
 
 
 // routes
+router.get('/404', (req, res) => {
+    res.render('404');
+});
+
 router.get('/', (req, res) => {
     const MovieModel = require('./model/movie.js');
 
     MovieModel
         .find()
-        .limit(5)
+        .limit(4)
         .exec(function(err, data) {
             if (err) return console.error(err);
             
@@ -80,7 +84,7 @@ router.get('/movies/', (req, res) => {
 
     MovieModel
         .find()
-        .limit(5)
+        .limit(10)
         .exec(function(err, data) {
             if (err) return console.error(err);
             
@@ -98,12 +102,16 @@ router.get('/movies/:slug', (req, res) => {
         .exec(function(err, data) {
             if (err) return console.error(err);
             
-            res.render(
-                'profile',
-                {
-                    movie: data
-                }
-            );
+            if (data) {
+                res.render(
+                    'profile',
+                    {
+                        movie: data
+                    }
+                );
+            } else {
+                res.redirect('/404');
+            }
         });
 });
 
