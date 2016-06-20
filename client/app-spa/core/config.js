@@ -4,14 +4,14 @@ angular.module('app.core', [])
             .state('index', {
                 url: '/',
                 templateUrl: '/spa/core/views/index.html',
-                controller: function () {
+                controller: () => {
                     console.log('SPA index');
                 }
             })
             .state('page1', {
                 url: '/page1',
                 templateUrl: '/spa/core/views/index.html',
-                controller: function () {
+                controller: () => {
                     console.log('SPA page1');
                 }
             });
