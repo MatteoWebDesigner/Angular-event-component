@@ -1,5 +1,10 @@
 .tCor-FullWidth { width: 100% !important; }
 
+.tCor-FullView { 
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
 .tCor-Block { display: block; }
 
 .tCor-Pd {
