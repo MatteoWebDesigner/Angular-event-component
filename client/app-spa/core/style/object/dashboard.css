@@ -1,5 +1,5 @@
 /*
-    <html class="oCor-Dashboard_BodyFreeze">
+    <html class="oCor-Dashboard_ScrollFreeze">
 
     <div class="oCor-Dashboard">
         <div class="oCor-Dashboard_layout">
@@ -15,8 +15,6 @@
         </div>
     </div>
  */
-.oCor-Test {}
-
 .oCor-Dashboard {
     position: fixed;
     top: 0;
@@ -66,8 +64,8 @@
     }
     
     /* apply on <html> */
-    &_BodyFreeze,
-    &_BodyFreeze body {
+    &_ScrollFreeze,
+    &_ScrollFreeze body {
         overflow: hidden;
     }
 }
