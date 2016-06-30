@@ -29,11 +29,11 @@
     }
 
     &_nav {
-        background-color: red;
         width: 100%;
         /* safari need this */
         flex-shrink: 0;
         flex-basis: auto;
+        z-index: 1
     }
     
     &_main {
@@ -42,18 +42,9 @@
     }
 
     &_sidebar {
-        background-color: black;
-        width: 50px;
-        
         /* safari need this */
         flex-shrink: 0;
         flex-basis: auto;
-        
-        transition: width .5s;
-
-        &.is-open {
-            width: 250px;
-        }
     }
     
     &_body {

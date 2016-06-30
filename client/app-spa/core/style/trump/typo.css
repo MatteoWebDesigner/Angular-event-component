@@ -26,5 +26,7 @@
     }
 }
 
+.tCor-TextCenter { text-align: center !important; }
+
 .tCor-BgGrayLight { background-color: var(--color-gray-light); }
 .tCor-BgWhite     { background-color: var(--color-white); }

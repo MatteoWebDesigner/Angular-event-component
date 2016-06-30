@@ -1,0 +1,11 @@
+.cCor-SideNav {
+    width: 60px;
+    height: 100%;
+    background-color: black; 
+
+    transition: width .5s;
+
+    &.is-open {
+        width: 250px;
+    }
+}
